@@ -1,0 +1,16 @@
+{
+  "object": {
+    "pins": [
+      {
+        "package": "LegendOfTheFiveRings",
+        "repositoryURL": "git@github.com:tharak/LegendOfTheFiveRings.git",
+        "state": {
+          "branch": "main",
+          "revision": "18bce4025d230fcab42d00440724d60aa6db06c8",
+          "version": null
+        }
+      }
+    ]
+  },
+  "version": 1
+}
