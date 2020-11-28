@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		6F81CB062572BDA300723154 /* LegendOfTheFiveRingsAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F81CB052572BDA300723154 /* LegendOfTheFiveRingsAppApp.swift */; };
+		6F81CB062572BDA300723154 /* LegendOfTheFiveRingsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F81CB052572BDA300723154 /* LegendOfTheFiveRingsApp.swift */; };
 		6F81CB082572BDA300723154 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F81CB072572BDA300723154 /* ContentView.swift */; };
 		6F81CB0A2572BDA500723154 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6F81CB092572BDA500723154 /* Assets.xcassets */; };
 		6F81CB0D2572BDA500723154 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6F81CB0C2572BDA500723154 /* Preview Assets.xcassets */; };
@@ -17,6 +17,7 @@
 		6F81CB282572BDA500723154 /* LegendOfTheFiveRingsAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F81CB272572BDA500723154 /* LegendOfTheFiveRingsAppUITests.swift */; };
 		6F81CB412572BF4A00723154 /* FrameworkTestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F81CB402572BF4A00723154 /* FrameworkTestView.swift */; };
 		6F81CB472572BFA000723154 /* LegendOfTheFiveRings in Frameworks */ = {isa = PBXBuildFile; productRef = 6F81CB462572BFA000723154 /* LegendOfTheFiveRings */; };
+		6F81CB8F2572EF2300723154 /* CharacterList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F81CB8E2572EF2300723154 /* CharacterList.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,7 +39,7 @@
 
 /* Begin PBXFileReference section */
 		6F81CB022572BDA300723154 /* LegendOfTheFiveRingsApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LegendOfTheFiveRingsApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		6F81CB052572BDA300723154 /* LegendOfTheFiveRingsAppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LegendOfTheFiveRingsAppApp.swift; sourceTree = "<group>"; };
+		6F81CB052572BDA300723154 /* LegendOfTheFiveRingsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LegendOfTheFiveRingsApp.swift; sourceTree = "<group>"; };
 		6F81CB072572BDA300723154 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		6F81CB092572BDA500723154 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		6F81CB0C2572BDA500723154 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
@@ -52,6 +53,8 @@
 		6F81CB272572BDA500723154 /* LegendOfTheFiveRingsAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LegendOfTheFiveRingsAppUITests.swift; sourceTree = "<group>"; };
 		6F81CB292572BDA500723154 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6F81CB402572BF4A00723154 /* FrameworkTestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FrameworkTestView.swift; sourceTree = "<group>"; };
+		6F81CB612572E74500723154 /* LegendOfTheFiveRingsApp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = LegendOfTheFiveRingsApp.entitlements; sourceTree = "<group>"; };
+		6F81CB8E2572EF2300723154 /* CharacterList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterList.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,13 +106,10 @@
 		6F81CB042572BDA300723154 /* LegendOfTheFiveRingsApp */ = {
 			isa = PBXGroup;
 			children = (
-				6F81CB052572BDA300723154 /* LegendOfTheFiveRingsAppApp.swift */,
-				6F81CB072572BDA300723154 /* ContentView.swift */,
-				6F81CB402572BF4A00723154 /* FrameworkTestView.swift */,
-				6F81CB092572BDA500723154 /* Assets.xcassets */,
-				6F81CB0E2572BDA500723154 /* Persistence.swift */,
 				6F81CB132572BDA500723154 /* Info.plist */,
-				6F81CB102572BDA500723154 /* LegendOfTheFiveRingsApp.xcdatamodeld */,
+				6F81CB612572E74500723154 /* LegendOfTheFiveRingsApp.entitlements */,
+				6F81CB5C2572E51E00723154 /* Shared */,
+				6F81CB602572E52C00723154 /* iOS */,
 				6F81CB0B2572BDA500723154 /* Preview Content */,
 			);
 			path = LegendOfTheFiveRingsApp;
@@ -139,6 +139,51 @@
 				6F81CB292572BDA500723154 /* Info.plist */,
 			);
 			path = LegendOfTheFiveRingsAppUITests;
+			sourceTree = "<group>";
+		};
+		6F81CB5C2572E51E00723154 /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				6F81CB052572BDA300723154 /* LegendOfTheFiveRingsApp.swift */,
+				6F81CB092572BDA500723154 /* Assets.xcassets */,
+				6F81CB9B2572F1EA00723154 /* Model */,
+				6F81CB072572BDA300723154 /* ContentView.swift */,
+				6F81CB972572F01600723154 /* Book */,
+				6F81CB932572EF3500723154 /* Character */,
+			);
+			path = Shared;
+			sourceTree = "<group>";
+		};
+		6F81CB602572E52C00723154 /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = iOS;
+			sourceTree = "<group>";
+		};
+		6F81CB932572EF3500723154 /* Character */ = {
+			isa = PBXGroup;
+			children = (
+				6F81CB8E2572EF2300723154 /* CharacterList.swift */,
+			);
+			path = Character;
+			sourceTree = "<group>";
+		};
+		6F81CB972572F01600723154 /* Book */ = {
+			isa = PBXGroup;
+			children = (
+				6F81CB402572BF4A00723154 /* FrameworkTestView.swift */,
+			);
+			path = Book;
+			sourceTree = "<group>";
+		};
+		6F81CB9B2572F1EA00723154 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				6F81CB0E2572BDA500723154 /* Persistence.swift */,
+				6F81CB102572BDA500723154 /* LegendOfTheFiveRingsApp.xcdatamodeld */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -278,7 +323,8 @@
 			files = (
 				6F81CB0F2572BDA500723154 /* Persistence.swift in Sources */,
 				6F81CB082572BDA300723154 /* ContentView.swift in Sources */,
-				6F81CB062572BDA300723154 /* LegendOfTheFiveRingsAppApp.swift in Sources */,
+				6F81CB062572BDA300723154 /* LegendOfTheFiveRingsApp.swift in Sources */,
+				6F81CB8F2572EF2300723154 /* CharacterList.swift in Sources */,
 				6F81CB122572BDA500723154 /* LegendOfTheFiveRingsApp.xcdatamodeld in Sources */,
 				6F81CB412572BF4A00723154 /* FrameworkTestView.swift in Sources */,
 			);
@@ -437,8 +483,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = LegendOfTheFiveRingsApp/LegendOfTheFiveRingsApp.entitlements;
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"LegendOfTheFiveRingsApp/Preview Content\"";
+				DEVELOPMENT_TEAM = 5GDHPB6D3B;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = LegendOfTheFiveRingsApp/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
@@ -446,8 +495,9 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.tharak.LegendOfTheFiveRingsApp;
+				PRODUCT_BUNDLE_IDENTIFIER = com.tharak.StrandedDeep;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTS_MACCATALYST = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -458,8 +508,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = LegendOfTheFiveRingsApp/LegendOfTheFiveRingsApp.entitlements;
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"LegendOfTheFiveRingsApp/Preview Content\"";
+				DEVELOPMENT_TEAM = 5GDHPB6D3B;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = LegendOfTheFiveRingsApp/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
@@ -467,8 +520,9 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.tharak.LegendOfTheFiveRingsApp;
+				PRODUCT_BUNDLE_IDENTIFIER = com.tharak.StrandedDeep;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTS_MACCATALYST = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

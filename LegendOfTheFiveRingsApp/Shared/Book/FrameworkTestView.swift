@@ -10,6 +10,7 @@ import LegendOfTheFiveRings
 
 struct FrameworkTestView: View {
     
+    @Binding var selection: Tab
     let book = Book()
 
     var body: some View {
@@ -32,8 +33,9 @@ struct FrameworkTestView: View {
             ])
         }
         .tabItem {
-            Label("book", systemImage: "book.closed")
+            Label("Book", systemImage: selection == Tab.book ? "book.closed.fill" : "book.closed")
         }
+        .tag(Tab.book)
     }
 }
 
@@ -72,6 +74,6 @@ struct SectionView: View {
 
 struct FrameworkTestView_Previews: PreviewProvider {
     static var previews: some View {
-        FrameworkTestView()
+        FrameworkTestView(selection: .constant(Tab.book))
     }
 }
