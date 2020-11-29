@@ -20,12 +20,12 @@ struct CharacterList: View {
         NavigationView {
             Form {
                 ForEach(items) { item in
-                    Text(item.name ?? "obo")
+                    NavigationLink(destination: CharacterView(character: item)) {
+                        Text(item.name!)
+                    }
                 }
                 .onDelete(perform: deleteItems)
-
             }
-
             .navigationTitle("Characters \(items.count)")
                 .navigationBarItems(trailing:
                     HStack {
@@ -49,6 +49,14 @@ struct CharacterList: View {
         withAnimation {
             let new = Character(context: viewContext)
             new.name = "\(items.count)"
+            
+            let newItem = Item(context: viewContext)
+            newItem.character = new
+
+            newItem.type = ItemType.advantages.rawValue
+            newItem.name = "Allies"
+            newItem.points = 3
+            
             do {
                 try viewContext.save()
             } catch {
