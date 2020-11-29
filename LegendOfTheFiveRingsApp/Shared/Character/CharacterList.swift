@@ -6,19 +6,26 @@
 //
 
 import SwiftUI
+import LegendOfTheFiveRings
 
 struct CharacterList: View {
     @Binding var selection: Tab
     
-    @State private var items: [String] = []
+    @Environment(\.managedObjectContext) private var viewContext
+    @FetchRequest(
+        sortDescriptors: [NSSortDescriptor(keyPath: \Character.name, ascending: true)],
+        animation: .default)
+    private var items: FetchedResults<Character>
 
+    var coreDataService: CoreDataService
+    
     var body: some View {
         NavigationView {
             Form {
-                ForEach(items, id:\.self) { item in
-                    NavigationLink(destination: Text("character: item")) {
-                        Text(item)
-                    }
+                ForEach(items, id: \.id) { (item: Character) in
+//                    NavigationLink(destination: CharacterView(character: item)) {
+                        Text(item.name)
+//                    }
                 }
                 .onDelete(perform: deleteItems)
             }
@@ -44,7 +51,9 @@ struct CharacterList: View {
     private func addItem() {
         withAnimation {
             print("add")
-            self.items.append("asd")
+            self.coreDataService.createCharacter(name: "wilson \(self.coreDataService.getCharacters()!.count)", xp: 45)
+//            self.items.append("asd")
+//            print(self.coreDataService.getCharacters())
         }
     }
     
@@ -55,8 +64,8 @@ struct CharacterList: View {
     }
 }
 
-struct CharacterList_Previews: PreviewProvider {
-    static var previews: some View {
-        CharacterList(selection:.constant(Tab.characters))
-    }
-}
+//struct CharacterList_Previews: PreviewProvider {
+//    static var previews: some View {
+//        CharacterList(selection:.constant(Tab.characters), coreDataService: CoreDataService())
+//    }
+//}
