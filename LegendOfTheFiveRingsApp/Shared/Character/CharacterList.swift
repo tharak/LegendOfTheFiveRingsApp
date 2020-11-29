@@ -10,18 +10,14 @@ import SwiftUI
 struct CharacterList: View {
     @Binding var selection: Tab
     
-    @Environment(\.managedObjectContext) private var viewContext
-    @FetchRequest(
-        sortDescriptors: [NSSortDescriptor(keyPath: \Character.name, ascending: true)],
-        animation: .default)
-    private var items: FetchedResults<Character>
+    @State private var items: [String] = []
 
     var body: some View {
         NavigationView {
             Form {
-                ForEach(items) { item in
-                    NavigationLink(destination: CharacterView(character: item)) {
-                        Text(item.name!)
+                ForEach(items, id:\.self) { item in
+                    NavigationLink(destination: Text("character: item")) {
+                        Text(item)
                     }
                 }
                 .onDelete(perform: deleteItems)
@@ -47,39 +43,14 @@ struct CharacterList: View {
     
     private func addItem() {
         withAnimation {
-            let new = Character(context: viewContext)
-            new.name = "\(items.count)"
-            
-            let newItem = Item(context: viewContext)
-            newItem.character = new
-
-            newItem.type = ItemType.advantages.rawValue
-            newItem.name = "Allies"
-            newItem.points = 3
-            
-            do {
-                try viewContext.save()
-            } catch {
-                // Replace this implementation with code to handle the error appropriately.
-                // fatalError() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
-                let nsError = error as NSError
-                fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
-            }
+            print("add")
+            self.items.append("asd")
         }
     }
     
     private func deleteItems(offsets: IndexSet) {
         withAnimation {
-            offsets.map { items[$0] }.forEach(viewContext.delete)
-
-            do {
-                try viewContext.save()
-            } catch {
-                // Replace this implementation with code to handle the error appropriately.
-                // fatalError() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
-                let nsError = error as NSError
-                fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
-            }
+            print("delete")
         }
     }
 }

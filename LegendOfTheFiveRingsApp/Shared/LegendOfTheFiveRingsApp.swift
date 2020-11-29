@@ -16,7 +16,6 @@ struct LegendOfTheFiveRingsApp: App {
         WindowGroup {
             TabView (selection: $selection) {
                 CharacterList(selection: $selection)
-                    .environment(\.managedObjectContext, persistenceController.container.viewContext)
                 Text("Dice")
                     .tabItem {
                         Label("Dice", systemImage: selection == Tab.dice ? "hexagon.fill" : "hexagon")
