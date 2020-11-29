@@ -41,6 +41,7 @@ struct ContentView: View {
             Image(systemName: "person.2")
             Text("new char")
         }
+        .tag(Tab.content)
     }
 
     private func addItem() {

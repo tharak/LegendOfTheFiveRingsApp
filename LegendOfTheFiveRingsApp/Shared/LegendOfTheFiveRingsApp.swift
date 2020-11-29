@@ -46,4 +46,5 @@ enum Tab {
     case characters
     case dice
     case book
+    case content
 }
