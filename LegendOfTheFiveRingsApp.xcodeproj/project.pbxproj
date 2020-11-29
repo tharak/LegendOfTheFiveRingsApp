@@ -146,8 +146,8 @@
 			children = (
 				6F81CB052572BDA300723154 /* LegendOfTheFiveRingsApp.swift */,
 				6F81CB092572BDA500723154 /* Assets.xcassets */,
-				6F81CB9B2572F1EA00723154 /* Model */,
 				6F81CB072572BDA300723154 /* ContentView.swift */,
+				6F81CB9B2572F1EA00723154 /* Model */,
 				6F81CB972572F01600723154 /* Book */,
 				6F81CB932572EF3500723154 /* Character */,
 			);
