@@ -11,25 +11,19 @@ import LegendOfTheFiveRings
 struct CharacterList: View {
     @Binding var selection: Tab
     
-    @Environment(\.managedObjectContext) private var viewContext
-    @FetchRequest(
-        sortDescriptors: [NSSortDescriptor(keyPath: \Character.name, ascending: true)],
-        animation: .default)
-    private var items: FetchedResults<Character>
-
-    var coreDataService: CoreDataService
+    @ObservedObject var model = LegendOfTheFiveRingsModel()
     
     var body: some View {
         NavigationView {
             Form {
-                ForEach(items, id: \.id) { (item: Character) in
-//                    NavigationLink(destination: CharacterView(character: item)) {
+                ForEach(model.characters, id: \.id) { (item: Character) in
+                    NavigationLink(destination: CharacterView(character: item)) {
                         Text(item.name)
-//                    }
+                    }
                 }
                 .onDelete(perform: deleteItems)
             }
-            .navigationTitle("Characters \(items.count)")
+            .navigationTitle("Characters \(model.characters.count)")
                 .navigationBarItems(trailing:
                     HStack {
                         Button(action: addItem) {
@@ -50,16 +44,15 @@ struct CharacterList: View {
     
     private func addItem() {
         withAnimation {
-            print("add")
-            self.coreDataService.createCharacter(name: "wilson \(self.coreDataService.getCharacters()!.count)", xp: 45)
-//            self.items.append("asd")
-//            print(self.coreDataService.getCharacters())
+            self.model.create(name: "Wilson \(model.characters.count)", xp: 45)
         }
     }
     
     private func deleteItems(offsets: IndexSet) {
         withAnimation {
-            print("delete")
+            for i in offsets {
+                self.model.delete(character: self.model.characters[i])
+            }
         }
     }
 }

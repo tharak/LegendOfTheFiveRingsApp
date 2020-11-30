@@ -18,7 +18,7 @@
 		6F81CB412572BF4A00723154 /* FrameworkTestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F81CB402572BF4A00723154 /* FrameworkTestView.swift */; };
 		6F81CB8F2572EF2300723154 /* CharacterList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F81CB8E2572EF2300723154 /* CharacterList.swift */; };
 		6FCB221A257327E400F8BABF /* CharacterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FCB2219257327E400F8BABF /* CharacterView.swift */; };
-		6FCB22392574650D00F8BABF /* LegendOfTheFiveRings in Frameworks */ = {isa = PBXBuildFile; productRef = 6FCB22382574650D00F8BABF /* LegendOfTheFiveRings */; };
+		6FEDABAC25757B4D002ECD61 /* LegendOfTheFiveRings in Frameworks */ = {isa = PBXBuildFile; productRef = 6FEDABAB25757B4D002ECD61 /* LegendOfTheFiveRings */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -64,7 +64,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6FCB22392574650D00F8BABF /* LegendOfTheFiveRings in Frameworks */,
+				6FEDABAC25757B4D002ECD61 /* LegendOfTheFiveRings in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -206,7 +206,7 @@
 			);
 			name = LegendOfTheFiveRingsApp;
 			packageProductDependencies = (
-				6FCB22382574650D00F8BABF /* LegendOfTheFiveRings */,
+				6FEDABAB25757B4D002ECD61 /* LegendOfTheFiveRings */,
 			);
 			productName = LegendOfTheFiveRingsApp;
 			productReference = 6F81CB022572BDA300723154 /* LegendOfTheFiveRingsApp.app */;
@@ -280,7 +280,7 @@
 			);
 			mainGroup = 6F81CAF92572BDA300723154;
 			packageReferences = (
-				6FCB22372574650D00F8BABF /* XCRemoteSwiftPackageReference "LegendOfTheFiveRings" */,
+				6FEDABAA25757B4D002ECD61 /* XCRemoteSwiftPackageReference "LegendOfTheFiveRings" */,
 			);
 			productRefGroup = 6F81CB032572BDA300723154 /* Products */;
 			projectDirPath = "";
@@ -654,7 +654,7 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		6FCB22372574650D00F8BABF /* XCRemoteSwiftPackageReference "LegendOfTheFiveRings" */ = {
+		6FEDABAA25757B4D002ECD61 /* XCRemoteSwiftPackageReference "LegendOfTheFiveRings" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "git@github.com:tharak/LegendOfTheFiveRings.git";
 			requirement = {
@@ -665,9 +665,9 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		6FCB22382574650D00F8BABF /* LegendOfTheFiveRings */ = {
+		6FEDABAB25757B4D002ECD61 /* LegendOfTheFiveRings */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 6FCB22372574650D00F8BABF /* XCRemoteSwiftPackageReference "LegendOfTheFiveRings" */;
+			package = 6FEDABAA25757B4D002ECD61 /* XCRemoteSwiftPackageReference "LegendOfTheFiveRings" */;
 			productName = LegendOfTheFiveRings;
 		};
 /* End XCSwiftPackageProductDependency section */

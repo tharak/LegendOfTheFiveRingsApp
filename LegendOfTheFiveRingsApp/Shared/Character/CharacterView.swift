@@ -6,41 +6,34 @@
 //
 
 import SwiftUI
+import LegendOfTheFiveRings
 
 struct CharacterView: View {
     
-//    @State var character: Character
+    @State var character: Character
 
     @State var newName: String = ""
     
     var body: some View {
         List {
             Text("character")
-//            TextField(character.name!, text: $newName)
-//            HStack {
-//                Text("Xp:")
-//                Text("\(character.expendedXp)")
-//            }
-//            ForEach(character.itemsOrder, id: \.self) { type in
-//                Section (header: Text(type.rawValue.capitalized)) {
-//                    ForEach(character.itemsFiltered(by: type), id: \.self) { item in
-//                        HStack {
-//                            Text(item.name!)
-//                            Text("\(item.points)")
-//                            Text(item.type!)
-//                        }
-//                    }
-//
-//                }
+            TextField(character.name, text: $newName)
+            HStack {
+                Text("Xp:")
+                Text("\(character.xp)")
+            }
+            
+//            ForEach(character.items.sorted(by: {$0 > $1})) { (item: Item) in
+//                Text(item.name)
 //            }
         }
-        .navigationTitle("character.name!")
+        .navigationTitle(character.name)
         .navigationBarItems(trailing:
-                                Button(action: {
-                                    if !newName.isEmpty {
-//                                        self.character.name = newName
-                                    }
-                                }) {
+            Button(action: {
+                if !newName.isEmpty {
+    //                                        self.character.name = newName
+                }
+            }) {
                 Label("Save", systemImage: "plus")
             }
         )
@@ -53,9 +46,3 @@ struct CharacterView: View {
 //    }
 //}
 
-
-extension ItemData: Comparable {
-    public static func < (lhs: ItemData, rhs: ItemData) -> Bool {
-        lhs.timestamp! < rhs.timestamp!
-    }
-}

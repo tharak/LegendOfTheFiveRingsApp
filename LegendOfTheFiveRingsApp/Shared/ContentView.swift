@@ -76,6 +76,13 @@ struct ContentView: View {
     }
 }
 
+
+extension ItemData: Comparable {
+    public static func < (lhs: ItemData, rhs: ItemData) -> Bool {
+        lhs.timestamp! < rhs.timestamp!
+    }
+}
+
 private let itemFormatter: DateFormatter = {
     let formatter = DateFormatter()
     formatter.dateStyle = .short
