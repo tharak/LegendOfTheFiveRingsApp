@@ -57,8 +57,8 @@ struct CharacterList: View {
     }
 }
 
-//struct CharacterList_Previews: PreviewProvider {
-//    static var previews: some View {
-//        CharacterList(selection:.constant(Tab.characters), coreDataService: CoreDataService())
-//    }
-//}
+struct CharacterList_Previews: PreviewProvider {
+    static var previews: some View {
+        CharacterList(selection:.constant(Tab.characters))
+    }
+}

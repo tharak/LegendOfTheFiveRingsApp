@@ -12,18 +12,13 @@ import LegendOfTheFiveRings
 struct LegendOfTheFiveRingsApp: App {
     
     let persistenceController = PersistenceController.shared
-    @State private var selection: Tab = .characters
+    @State private var selection: Tab = .dice
 
     var body: some Scene {
         WindowGroup {
             TabView (selection: $selection) {
                 CharacterList(selection: $selection)
-                Text("Dice")
-                    .tabItem {
-                        Label("Dice", systemImage: selection == Tab.dice ? "hexagon.fill" : "hexagon")
-                            .accessibility(label: Text("Dice"))
-                    }
-                    .tag(Tab.dice)
+                DiceView(selection: $selection)
                 FrameworkTestView(selection: $selection)
                 ContentView()
                     .environment(\.managedObjectContext, persistenceController.container.viewContext)

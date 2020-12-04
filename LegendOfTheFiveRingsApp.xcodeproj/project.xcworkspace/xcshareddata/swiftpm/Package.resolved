@@ -2,11 +2,29 @@
   "object": {
     "pins": [
       {
+        "package": "CoreDataModelDescription",
+        "repositoryURL": "https://github.com/dmytro-anokhin/core-data-model-description.git",
+        "state": {
+          "branch": null,
+          "revision": "9669c28cf58deb4a8d0454abd656ac7557f98ab6",
+          "version": "0.0.9"
+        }
+      },
+      {
         "package": "LegendOfTheFiveRings",
         "repositoryURL": "git@github.com:tharak/LegendOfTheFiveRings.git",
         "state": {
           "branch": "main",
-          "revision": "252ed75b276314cc0ee1905cb1c921243d58fe14",
+          "revision": "91ca103adc407a42a870b1f5d89280342432757d",
+          "version": null
+        }
+      },
+      {
+        "package": "LegendOfTheFiveRingsRoller",
+        "repositoryURL": "git@github.com:tharak/LegendOfTheFiveRingsRoller.git",
+        "state": {
+          "branch": "main",
+          "revision": "2f0f73531613c573a8ca9050a9226584856df8b1",
           "version": null
         }
       }
