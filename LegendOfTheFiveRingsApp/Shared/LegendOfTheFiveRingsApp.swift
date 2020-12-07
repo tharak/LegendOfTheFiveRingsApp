@@ -12,7 +12,7 @@ import LegendOfTheFiveRings
 struct LegendOfTheFiveRingsApp: App {
     
     let persistenceController = PersistenceController.shared
-    @State private var selection: Tab = .dice
+    @State private var selection: Tab = .characters
 
     var body: some Scene {
         WindowGroup {

@@ -10,14 +10,14 @@ import LegendOfTheFiveRings
 
 struct CharacterList: View {
     @Binding var selection: Tab
-    
+    @State var showCharacterCreation = true
     @ObservedObject var model = LegendOfTheFiveRingsModel()
-    
+
     var body: some View {
         NavigationView {
             Form {
                 ForEach(model.characters, id: \.id) { (item: Character) in
-                    NavigationLink(destination: CharacterView(character: item)) {
+                    NavigationLink(destination: Text("\(item.name)")) {
                         Text(item.name)
                     }
                 }
@@ -26,8 +26,12 @@ struct CharacterList: View {
             .navigationTitle("Characters \(model.characters.count)")
                 .navigationBarItems(trailing:
                     HStack {
-                        Button(action: addItem) {
+                        Button(action: {
+                            showCharacterCreation.toggle()
+                        }) {
                             Label("Add Item", systemImage: "plus")
+                        }.sheet(isPresented: $showCharacterCreation) {
+                            CharacterCreationView(showing: self.$showCharacterCreation, model: model)
                         }
                         #if os(iOS)
                         EditButton()
@@ -40,12 +44,11 @@ struct CharacterList: View {
                 .accessibility(label: Text("Characters"))
         }
         .tag(Tab.characters)
+        
     }
     
     private func addItem() {
-        withAnimation {
-            self.model.create(name: "Wilson \(model.characters.count)", xp: 45)
-        }
+        
     }
     
     private func deleteItems(offsets: IndexSet) {
