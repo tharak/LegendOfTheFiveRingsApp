@@ -12,11 +12,13 @@ import LegendOfTheFiveRings
 struct LegendOfTheFiveRingsApp: App {
     
     let persistenceController = PersistenceController.shared
-    @State private var selection: Tab = .characters
+    @State private var selection: Tab = .testChar
 
+    let model = LegendOfTheFiveRingsModel()
     var body: some Scene {
         WindowGroup {
             TabView (selection: $selection) {
+                CharacterView(model: model, character: model.characters.first!)
                 CharacterList(selection: $selection)
                 DiceView(selection: $selection)
                 FrameworkTestView(selection: $selection)
@@ -29,6 +31,7 @@ struct LegendOfTheFiveRingsApp: App {
 
 // MARK: - Tab
 enum Tab {
+    case testChar
     case characters
     case dice
     case book
