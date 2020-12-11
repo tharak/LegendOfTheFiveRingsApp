@@ -12,6 +12,7 @@
 		6F81A7542582B2F400251F7C /* RingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F81A7532582B2F400251F7C /* RingView.swift */; };
 		6F81A7592582B30600251F7C /* TraitView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F81A7582582B30600251F7C /* TraitView.swift */; };
 		6F81A76F2582E7D900251F7C /* SkillView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F81A76E2582E7D900251F7C /* SkillView.swift */; };
+		6F81A7752582EDD200251F7C /* DieView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F81A7742582EDD200251F7C /* DieView.swift */; };
 		6F81CB062572BDA300723154 /* LegendOfTheFiveRingsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F81CB052572BDA300723154 /* LegendOfTheFiveRingsApp.swift */; };
 		6F81CB082572BDA300723154 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F81CB072572BDA300723154 /* ContentView.swift */; };
 		6F81CB0A2572BDA500723154 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6F81CB092572BDA500723154 /* Assets.xcassets */; };
@@ -50,6 +51,7 @@
 		6F81A7532582B2F400251F7C /* RingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RingView.swift; sourceTree = "<group>"; };
 		6F81A7582582B30600251F7C /* TraitView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TraitView.swift; sourceTree = "<group>"; };
 		6F81A76E2582E7D900251F7C /* SkillView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkillView.swift; sourceTree = "<group>"; };
+		6F81A7742582EDD200251F7C /* DieView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DieView.swift; sourceTree = "<group>"; };
 		6F81CB022572BDA300723154 /* LegendOfTheFiveRingsApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LegendOfTheFiveRingsApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6F81CB052572BDA300723154 /* LegendOfTheFiveRingsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LegendOfTheFiveRingsApp.swift; sourceTree = "<group>"; };
 		6F81CB072572BDA300723154 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -105,6 +107,14 @@
 				6F55D6C225799DAA0055CF11 /* DiceView.swift */,
 			);
 			path = Dice;
+			sourceTree = "<group>";
+		};
+		6F81A7732582EDBA00251F7C /* DieView */ = {
+			isa = PBXGroup;
+			children = (
+				6F81A7742582EDD200251F7C /* DieView.swift */,
+			);
+			path = DieView;
 			sourceTree = "<group>";
 		};
 		6F81CAF92572BDA300723154 = {
@@ -169,6 +179,7 @@
 			isa = PBXGroup;
 			children = (
 				6F81CB052572BDA300723154 /* LegendOfTheFiveRingsApp.swift */,
+				6F81A7732582EDBA00251F7C /* DieView */,
 				6F55D6C125799D9E0055CF11 /* Dice */,
 				6F81CB092572BDA500723154 /* Assets.xcassets */,
 				6F81CB072572BDA300723154 /* ContentView.swift */,
@@ -359,6 +370,7 @@
 				6F81A76F2582E7D900251F7C /* SkillView.swift in Sources */,
 				6FED696725817B50008DC3A9 /* ModelExtensions.swift in Sources */,
 				6F55D6C325799DAA0055CF11 /* DiceView.swift in Sources */,
+				6F81A7752582EDD200251F7C /* DieView.swift in Sources */,
 				6F81CB082572BDA300723154 /* ContentView.swift in Sources */,
 				6F81CB062572BDA300723154 /* LegendOfTheFiveRingsApp.swift in Sources */,
 				6F81A7542582B2F400251F7C /* RingView.swift in Sources */,

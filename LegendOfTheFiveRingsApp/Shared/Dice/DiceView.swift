@@ -18,8 +18,7 @@ struct DiceView: View {
 
     @State var keepHigh: Bool = true
     
-    @State var explodesOn: Int = 10
-    @State var explodes: Bool = true
+    @State var explodesOn: Int? = 10
     @State var rerollOnOne: Bool = false
 
     var body: some View {
@@ -37,7 +36,12 @@ struct DiceView: View {
                     Spacer()
                     VStack {
                         Text("Explodes")
-                        Toggle(isOn: $explodes) {}.labelsHidden()
+                        Picker("explodesOn:", selection: $explodesOn) {
+                            ForEach([nil, 9, 10], id: \.self) { value in
+                                Text(value == nil ? "none" : "\(value!)").tag(value)
+                            }
+                        }
+                        .pickerStyle(SegmentedPickerStyle())
                     }
                     .padding(4)
                     .border(Color.accentColor)
@@ -53,16 +57,7 @@ struct DiceView: View {
                 HStack {
                     ForEach(1...5, id: \.self) { i in
                         Spacer()
-                        Button("\(i)k\(i)") {
-                            withAnimation {
-                                self.model.roll(amount: i, keep: i, bonus: 0,
-                                                keepHigh: keepHigh,
-                                                explodesOn: explodes ? explodesOn : nil,
-                                                rerollOnOne: rerollOnOne)
-                            }
-                        }
-                        .padding(4)
-                        .border(Color.accentColor)
+                        DieView(model: model, roll: .constant(i), keep: .constant(i), bonus: .constant(0), keepHigh: $keepHigh, explodesOn: $explodesOn, rerollOnOne: $rerollOnOne, color: .constant(Color.accentColor))
                     }
                     Spacer()
                 }
@@ -81,36 +76,7 @@ struct DiceView: View {
                         .background(Color.green)
                 }
                 .padding()
-                
-                Button(action: {
-                    withAnimation {
-                        self.model.roll(amount: self.roll, keep: self.keep, bonus: self.bonus,
-                                        keepHigh: keepHigh,
-                                        explodesOn: explodes ? explodesOn : nil,
-                                        rerollOnOne: rerollOnOne)
-                    }
-                }, label: {
-                    HStack {
-                        Spacer()
-                        Text("\(roll)")
-                            .frame(minWidth: 40)
-                            .background(Color.red)
-                            .foregroundColor(.secondary)
-                        Text("k")
-                        Text("\(keep)")
-                            .frame(minWidth: 40)
-                            .background(Color.orange)
-                            .foregroundColor(.secondary)
-                        Text(bonus < 0 ? "\(bonus)" : "+\(bonus)")
-                            .frame(minWidth: 40)
-                            .background(Color.green)
-                            .foregroundColor(.secondary)
-                        Spacer()
-                    }
-                })
-                .padding(4)
-                .border(Color.accentColor)
-
+                DieView(model: model, roll: $roll, keep: $keep, bonus: $bonus, keepHigh: $keepHigh, explodesOn: $explodesOn, rerollOnOne: $rerollOnOne, color: .constant(Color.red))
                 Divider()
                 List {
                     ForEach(model.rolls, id: \.id) { (item: Roll) in

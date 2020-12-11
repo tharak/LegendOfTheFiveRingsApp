@@ -12,7 +12,7 @@ import LegendOfTheFiveRings
 struct LegendOfTheFiveRingsApp: App {
     
     let persistenceController = PersistenceController.shared
-    @State private var selection: Tab = .testChar
+    @State private var selection: Tab = .dice
 
     let model = LegendOfTheFiveRingsModel()
     var body: some Scene {

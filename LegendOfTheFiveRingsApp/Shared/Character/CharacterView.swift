@@ -66,7 +66,7 @@ struct CharacterView: View {
                     ScrollView(.horizontal) {
                         HStack{
                             ForEach(character.skills(), id:\.self) { skill in
-                                SkillView(skill: skill, character: character)
+                                SkillView(skill: skill, character: character, traitValue: 0, hasEmphasis: false)
                             }
                         }
                     }
