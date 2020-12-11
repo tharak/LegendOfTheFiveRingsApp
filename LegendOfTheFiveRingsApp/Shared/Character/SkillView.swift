@@ -10,7 +10,7 @@ import LegendOfTheFiveRings
 import LegendOfTheFiveRingsRoller
 
 struct SkillView: View {
-    
+    @ObservedObject var model: LegendOfTheFiveRingsModel
     let skill: Item
     @State var character: Character
     var traitValue: Int
@@ -24,6 +24,7 @@ struct SkillView: View {
             }
             DieView(model: LegendOfTheFiveRingsRollerModel(), roll: .constant(character.skillRank(name: skill.name)), keep: .constant(traitValue + character.skillRank(name: skill.name)), bonus: .constant(0), keepHigh: .constant(true), explodesOn: .constant(10), rerollOnOne: .constant(hasEmphasis), color: .constant(Color.red))
         }
+        .background(Color.orange)
     }
 }
 

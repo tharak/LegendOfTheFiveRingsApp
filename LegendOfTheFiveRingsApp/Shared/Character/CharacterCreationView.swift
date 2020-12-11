@@ -10,10 +10,10 @@ import LegendOfTheFiveRings
 
 struct CharacterCreationView: View {
 
-    @Binding var showing: Bool
-    let book = Book()
-    @ObservedObject var model: LegendOfTheFiveRingsModel
+    @EnvironmentObject var model: LegendOfTheFiveRingsModel
+    var book: Book
 
+    @Binding var showing: Bool
     @State var xp: Int = 45
     @State var name: String = ""
     @State var clan: ClanName = ClanName.crab
@@ -70,6 +70,6 @@ struct CharacterCreationView: View {
 
 struct CharacterCreationView_Previews: PreviewProvider {
     static var previews: some View {
-        CharacterCreationView(showing: .constant(true), model: LegendOfTheFiveRingsModel())
+        CharacterCreationView(book: Book(), showing: .constant(true))
     }
 }

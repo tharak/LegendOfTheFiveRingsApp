@@ -9,7 +9,7 @@ import SwiftUI
 import LegendOfTheFiveRingsRoller
 
 struct DieView: View {
-    @ObservedObject var model = LegendOfTheFiveRingsRollerModel()
+    @ObservedObject var model: LegendOfTheFiveRingsRollerModel
     
     @Binding var roll: Int
     @Binding var keep: Int

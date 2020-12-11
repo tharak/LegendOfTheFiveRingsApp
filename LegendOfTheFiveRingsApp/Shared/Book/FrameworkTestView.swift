@@ -11,27 +11,40 @@ import LegendOfTheFiveRings
 struct FrameworkTestView: View {
     
     @Binding var selection: Tab
-    let book = Book()
+    @EnvironmentObject var book: Book
 
+    
+    
     var body: some View {
+        let sections = [
+            
+            SectionView(name: "Advantages", items: book.advatages.map({NameDescription($0.name, $0.description)})),
+            SectionView(name: "Ancestors", items: book.ancestors.map({NameDescription($0.name, $0.description)})),
+            SectionView(name: "Armors", items: book.armors.map({NameDescription($0.name, $0.description)})),
+            SectionView(name: "Clans", items: book.clans.map({NameDescription($0.name, $0.description)})),
+            SectionView(name: "Disadvatages", items: book.disadvatages.map({NameDescription($0.name, $0.description)})),
+            SectionView(name: "Families", items: book.families.map({NameDescription($0.name, $0.description)})),
+            SectionView(name: "Katas", items: book.katas.map({NameDescription($0.name, $0.description)})),
+        
+            SectionView(name: "Kihos", items: book.kihos.map({NameDescription($0.name, $0.description)})),
+            SectionView(name: "Schools", items: book.schools.map({NameDescription($0.name, $0.description)})),
+            SectionView(name: "shadowlandsPowers", items: book.shadowlandsPowers.map({NameDescription($0.name, $0.description)})),
+            SectionView(name: "Skills", items: book.skills.map({NameDescription($0.name, $0.description)})),
+            SectionView(name: "Spells", items: book.spells.map({NameDescription($0.name, $0.description)})),
+            SectionView(name: "Tattoos", items: book.tattoos.map({NameDescription($0.name, $0.description)})),
+            SectionView(name: "Weapons", items: book.weapons.map({NameDescription($0.name, $0.description ?? "")})),
+        ]
         NavigationView {
-            ListView(name: "Book", sections: [
-                SectionData(name: "Advantages", items: book.advatages.map({$0.name})),
-                SectionData(name: "Ancestors", items: book.ancestors.map({$0.name})),
-                SectionData(name: "Armors", items: book.armors.map({$0.name})),
-                SectionData(name: "Clans", items: book.clans.map({$0.name})),
-                SectionData(name: "Disadvatages", items: book.disadvatages.map({$0.name})),
-                SectionData(name: "Families", items: book.families.map({$0.name})),
-                SectionData(name: "Katas", items: book.katas.map({$0.name})),
-                SectionData(name: "Kihos", items: book.kihos.map({$0.name})),
-                SectionData(name: "schools", items: book.schools.map({$0.name})),
-                SectionData(name: "shadowlandsPowers", items: book.shadowlandsPowers.map({$0.name})),
-                SectionData(name: "Skills", items: book.skills.map({$0.name})),
-                SectionData(name: "Spells", items: book.spells.map({$0.name})),
-                SectionData(name: "Tattoos", items: book.tattoos.map({$0.name})),
-                SectionData(name: "Weapons", items: book.weapons.map({$0.name})),
-            ])
+            Form  {
+                ForEach(sections, id: \.self) { sectionView in
+                    sectionView
+                }
+                
+            }
+            .navigationBarTitle("Book", displayMode: .inline)
+            .navigationBarHidden(true)
         }
+
         .tabItem {
             Label("Book", systemImage: selection == Tab.book ? "book.closed.fill" : "book.closed")
         }
@@ -39,37 +52,32 @@ struct FrameworkTestView: View {
     }
 }
 
-struct SectionData: Hashable {
+struct SectionView: View, Hashable {
     let name: String
-    let items: [String]
-}
-
-struct ListView: View {
-    let name: String
-    let sections: [SectionData]
-
+    let items: [NameDescription]
     var body: some View {
-        List  {
-            ForEach(sections, id: \.self) { section in
-                SectionView(name: section.name, sectionItems: section.items)
+        NavigationLink(destination:
+            List {
+                ForEach(items, id: \.self) {
+                    Text($0.name).font(.headline)
+                    Text($0.description).font(.subheadline)
+                }
             }
-        }
-        .navigationBarItems(leading: Text(""), trailing: Text("") )
-        .navigationBarTitle(name)
-    }
-}
-
-struct SectionView: View {
-    let name: String
-    let sectionItems: [String]
-    var body: some View {
-        Section(header:
-            Text(name)) {
-            ForEach(sectionItems, id: \.self) {
-                Text($0)
-            }
+            .navigationBarTitle(name, displayMode: .inline)
+        ) {
+            Text(name)
         }
     }
+}
+
+struct NameDescription: Hashable {
+    init(_ name: String, _ description: String) {
+        self.name = name
+        self.description = description
+    }
+    
+    let name, description: String
+
 }
 
 struct FrameworkTestView_Previews: PreviewProvider {

@@ -10,11 +10,12 @@ import LegendOfTheFiveRings
 
 struct CharacterView: View {
 
-    @ObservedObject var model: LegendOfTheFiveRingsModel
-    @State var character: Character
+    @EnvironmentObject var model: LegendOfTheFiveRingsModel
+    @State var character: Character?
     @State var name: String = ""
     
     var body: some View {
+        if let character = character {
             Form {
                 Section {
                     HStack {
@@ -66,7 +67,7 @@ struct CharacterView: View {
                     ScrollView(.horizontal) {
                         HStack{
                             ForEach(character.skills(), id:\.self) { skill in
-                                SkillView(skill: skill, character: character, traitValue: 0, hasEmphasis: false)
+                                SkillView(model: model, skill: skill, character: character, traitValue: 0, hasEmphasis: false)
                             }
                         }
                     }
@@ -81,11 +82,19 @@ struct CharacterView: View {
                     .accessibility(label: Text("Characters"))
             }
             .tag(Tab.testChar)
+            }
+        else {
+            Text("Loading...")
+                .onAppear() {
+                    self.character = model.characters.first
+                }
+        }
     }
 }
 
 struct CharacterView_Previews: PreviewProvider {
     static var previews: some View {
-        CharacterView(model: LegendOfTheFiveRingsModel(), character: LegendOfTheFiveRingsModel().characters.first!)
+        CharacterView(character: LegendOfTheFiveRingsModel().characters.first, name: "Char")
+            .environmentObject(LegendOfTheFiveRingsModel())
     }
 }

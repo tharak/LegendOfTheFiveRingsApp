@@ -9,9 +9,9 @@ import SwiftUI
 import LegendOfTheFiveRingsRoller
 
 struct DiceView: View {
-    @Binding var selection: Tab
-    
-    @ObservedObject var model = LegendOfTheFiveRingsRollerModel()
+    @EnvironmentObject var model: LegendOfTheFiveRingsRollerModel
+
+    @Binding var selection: Tab    
     @State var roll: Int = 1
     @State var keep: Int = 1
     @State var bonus: Int = 0
@@ -31,7 +31,7 @@ struct DiceView: View {
                         Toggle(isOn: $keepHigh) {}.labelsHidden()
                     }
                     .padding(4)
-                    .border(Color.accentColor)
+                    .overlay(RoundedRectangle(cornerRadius: 8).stroke(Color.accentColor, lineWidth: 2))
                     
                     Spacer()
                     VStack {
@@ -44,14 +44,14 @@ struct DiceView: View {
                         .pickerStyle(SegmentedPickerStyle())
                     }
                     .padding(4)
-                    .border(Color.accentColor)
+                    .overlay(RoundedRectangle(cornerRadius: 8).stroke(Color.accentColor, lineWidth: 2))
                     Spacer()
                     VStack {
                         Text("Re-roll on 1")
                         Toggle(isOn: $rerollOnOne) {}.labelsHidden()
                     }
                     .padding(4)
-                    .border(Color.accentColor)
+                    .overlay(RoundedRectangle(cornerRadius: 8).stroke(Color.accentColor, lineWidth: 2))
                     Spacer()
                 }
                 HStack {
@@ -61,23 +61,41 @@ struct DiceView: View {
                     }
                     Spacer()
                 }
+
                 Divider()
-                HStack {
-                    Stepper(value: $roll, in: keep...30) {}
-                        .labelsHidden()
-                        .background(Color.red)
-                    Spacer()
-                    Stepper(value: $keep, in: 1...roll) {}
-                        .labelsHidden()
-                        .background(Color.orange)
-                    Spacer()
-                    Stepper(value: $bonus) {}
-                        .labelsHidden()
-                        .background(Color.green)
+                VStack (spacing: 16) {
+                    HStack {
+                        VStack {
+                            Text("Roll")
+                            Stepper("Roll", value: $roll, in: keep...30)
+                                .labelsHidden()
+                        }
+                        .padding(.top, 4)
+                        .overlay(RoundedRectangle(cornerRadius: 8).stroke(Color.accentColor, lineWidth: 1))
+                        Spacer()
+                        VStack {
+                            Text("Keep")
+                            Stepper("Keep", value: $keep, in: 1...roll)
+                                .labelsHidden()
+                        }
+                        .padding(.top, 4)
+                        .overlay(RoundedRectangle(cornerRadius: 8).stroke(Color.accentColor, lineWidth: 1))
+                        Spacer()
+                        VStack {
+                            Text("Bonus")
+                            Stepper("Bonus", value: $bonus)
+                                .labelsHidden()
+                        }
+                        .padding(.top, 4)
+                        .overlay(RoundedRectangle(cornerRadius: 8).stroke(Color.accentColor, lineWidth: 1))
+                    }
+                    
+                    DieView(model: model, roll: $roll, keep: $keep, bonus: $bonus, keepHigh: $keepHigh, explodesOn: $explodesOn, rerollOnOne: $rerollOnOne, color: .constant(Color.red))
+                    
                 }
                 .padding()
-                DieView(model: model, roll: $roll, keep: $keep, bonus: $bonus, keepHigh: $keepHigh, explodesOn: $explodesOn, rerollOnOne: $rerollOnOne, color: .constant(Color.red))
-                Divider()
+                .overlay(RoundedRectangle(cornerRadius: 8).stroke(Color.accentColor, lineWidth: 1))
+
                 List {
                     ForEach(model.rolls, id: \.id) { (item: Roll) in
                         HStack {

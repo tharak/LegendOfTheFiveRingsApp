@@ -9,15 +9,17 @@ import SwiftUI
 import LegendOfTheFiveRings
 
 struct CharacterList: View {
+
+    @EnvironmentObject var model: LegendOfTheFiveRingsModel
+    @EnvironmentObject var book: Book
     @Binding var selection: Tab
     @State var showCharacterCreation = false
-    @ObservedObject var model = LegendOfTheFiveRingsModel()
 
     var body: some View {
         NavigationView {
             Form {
                 ForEach(model.characters, id: \.id) { (item: Character) in
-                    NavigationLink(destination: CharacterView(model: model, character: item)) {
+                    NavigationLink(destination: CharacterView(character: item)) {
                         Text(item.name)
                     }
                 }
@@ -31,7 +33,7 @@ struct CharacterList: View {
                         }) {
                             Label("Add Item", systemImage: "plus")
                         }.sheet(isPresented: $showCharacterCreation) {
-                            CharacterCreationView(showing: self.$showCharacterCreation, model: model)
+                            CharacterCreationView(book: book, showing: self.$showCharacterCreation)
                         }
                         #if os(iOS)
                         EditButton()
