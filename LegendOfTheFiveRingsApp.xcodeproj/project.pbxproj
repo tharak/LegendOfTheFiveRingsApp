@@ -9,23 +9,23 @@
 /* Begin PBXBuildFile section */
 		6F55D6BD25799D310055CF11 /* LegendOfTheFiveRingsRoller in Frameworks */ = {isa = PBXBuildFile; productRef = 6F55D6BC25799D310055CF11 /* LegendOfTheFiveRingsRoller */; };
 		6F55D6C325799DAA0055CF11 /* DiceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F55D6C225799DAA0055CF11 /* DiceView.swift */; };
+		6F5F4A962584FF2700FFD0A2 /* HistoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F5F4A952584FF2600FFD0A2 /* HistoryView.swift */; };
+		6F5F4AAD25852B5800FFD0A2 /* CharacterCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F5F4AAC25852B5800FFD0A2 /* CharacterCell.swift */; };
 		6F81A7542582B2F400251F7C /* RingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F81A7532582B2F400251F7C /* RingView.swift */; };
 		6F81A7592582B30600251F7C /* TraitView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F81A7582582B30600251F7C /* TraitView.swift */; };
 		6F81A76F2582E7D900251F7C /* SkillView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F81A76E2582E7D900251F7C /* SkillView.swift */; };
 		6F81A7752582EDD200251F7C /* DieView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F81A7742582EDD200251F7C /* DieView.swift */; };
 		6F81CB062572BDA300723154 /* LegendOfTheFiveRingsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F81CB052572BDA300723154 /* LegendOfTheFiveRingsApp.swift */; };
-		6F81CB082572BDA300723154 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F81CB072572BDA300723154 /* ContentView.swift */; };
 		6F81CB0A2572BDA500723154 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6F81CB092572BDA500723154 /* Assets.xcassets */; };
 		6F81CB0D2572BDA500723154 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6F81CB0C2572BDA500723154 /* Preview Assets.xcassets */; };
 		6F81CB0F2572BDA500723154 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F81CB0E2572BDA500723154 /* Persistence.swift */; };
 		6F81CB122572BDA500723154 /* LegendOfTheFiveRingsApp.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 6F81CB102572BDA500723154 /* LegendOfTheFiveRingsApp.xcdatamodeld */; };
 		6F81CB1D2572BDA500723154 /* LegendOfTheFiveRingsAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F81CB1C2572BDA500723154 /* LegendOfTheFiveRingsAppTests.swift */; };
 		6F81CB282572BDA500723154 /* LegendOfTheFiveRingsAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F81CB272572BDA500723154 /* LegendOfTheFiveRingsAppUITests.swift */; };
-		6F81CB412572BF4A00723154 /* FrameworkTestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F81CB402572BF4A00723154 /* FrameworkTestView.swift */; };
+		6F81CB412572BF4A00723154 /* BookView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F81CB402572BF4A00723154 /* BookView.swift */; };
 		6F81CB8F2572EF2300723154 /* CharacterList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F81CB8E2572EF2300723154 /* CharacterList.swift */; };
 		6FB59F692581739F00D6A298 /* CharacterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FB59F682581739F00D6A298 /* CharacterView.swift */; };
 		6FCB221A257327E400F8BABF /* CharacterCreationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FCB2219257327E400F8BABF /* CharacterCreationView.swift */; };
-		6FED696725817B50008DC3A9 /* ModelExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FED696625817B50008DC3A9 /* ModelExtensions.swift */; };
 		6FEDABAC25757B4D002ECD61 /* LegendOfTheFiveRings in Frameworks */ = {isa = PBXBuildFile; productRef = 6FEDABAB25757B4D002ECD61 /* LegendOfTheFiveRings */; };
 /* End PBXBuildFile section */
 
@@ -48,13 +48,14 @@
 
 /* Begin PBXFileReference section */
 		6F55D6C225799DAA0055CF11 /* DiceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiceView.swift; sourceTree = "<group>"; };
+		6F5F4A952584FF2600FFD0A2 /* HistoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryView.swift; sourceTree = "<group>"; };
+		6F5F4AAC25852B5800FFD0A2 /* CharacterCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterCell.swift; sourceTree = "<group>"; };
 		6F81A7532582B2F400251F7C /* RingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RingView.swift; sourceTree = "<group>"; };
 		6F81A7582582B30600251F7C /* TraitView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TraitView.swift; sourceTree = "<group>"; };
 		6F81A76E2582E7D900251F7C /* SkillView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkillView.swift; sourceTree = "<group>"; };
 		6F81A7742582EDD200251F7C /* DieView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DieView.swift; sourceTree = "<group>"; };
 		6F81CB022572BDA300723154 /* LegendOfTheFiveRingsApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LegendOfTheFiveRingsApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6F81CB052572BDA300723154 /* LegendOfTheFiveRingsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LegendOfTheFiveRingsApp.swift; sourceTree = "<group>"; };
-		6F81CB072572BDA300723154 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		6F81CB092572BDA500723154 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		6F81CB0C2572BDA500723154 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		6F81CB0E2572BDA500723154 /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
@@ -66,12 +67,11 @@
 		6F81CB232572BDA500723154 /* LegendOfTheFiveRingsAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LegendOfTheFiveRingsAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		6F81CB272572BDA500723154 /* LegendOfTheFiveRingsAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LegendOfTheFiveRingsAppUITests.swift; sourceTree = "<group>"; };
 		6F81CB292572BDA500723154 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		6F81CB402572BF4A00723154 /* FrameworkTestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FrameworkTestView.swift; sourceTree = "<group>"; };
+		6F81CB402572BF4A00723154 /* BookView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookView.swift; sourceTree = "<group>"; };
 		6F81CB612572E74500723154 /* LegendOfTheFiveRingsApp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = LegendOfTheFiveRingsApp.entitlements; sourceTree = "<group>"; };
 		6F81CB8E2572EF2300723154 /* CharacterList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterList.swift; sourceTree = "<group>"; };
 		6FB59F682581739F00D6A298 /* CharacterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterView.swift; sourceTree = "<group>"; };
 		6FCB2219257327E400F8BABF /* CharacterCreationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterCreationView.swift; sourceTree = "<group>"; };
-		6FED696625817B50008DC3A9 /* ModelExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelExtensions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,6 +105,7 @@
 			isa = PBXGroup;
 			children = (
 				6F55D6C225799DAA0055CF11 /* DiceView.swift */,
+				6F5F4A952584FF2600FFD0A2 /* HistoryView.swift */,
 			);
 			path = Dice;
 			sourceTree = "<group>";
@@ -182,8 +183,7 @@
 				6F81A7732582EDBA00251F7C /* DieView */,
 				6F55D6C125799D9E0055CF11 /* Dice */,
 				6F81CB092572BDA500723154 /* Assets.xcassets */,
-				6F81CB072572BDA300723154 /* ContentView.swift */,
-				6F81CB9B2572F1EA00723154 /* Model */,
+				6F81CB9B2572F1EA00723154 /* Persistence */,
 				6F81CB972572F01600723154 /* Book */,
 				6F81CB932572EF3500723154 /* Character */,
 			);
@@ -202,6 +202,7 @@
 			children = (
 				6F81CB8E2572EF2300723154 /* CharacterList.swift */,
 				6FCB2219257327E400F8BABF /* CharacterCreationView.swift */,
+				6F5F4AAC25852B5800FFD0A2 /* CharacterCell.swift */,
 				6FB59F682581739F00D6A298 /* CharacterView.swift */,
 				6F81A7532582B2F400251F7C /* RingView.swift */,
 				6F81A7582582B30600251F7C /* TraitView.swift */,
@@ -213,19 +214,18 @@
 		6F81CB972572F01600723154 /* Book */ = {
 			isa = PBXGroup;
 			children = (
-				6F81CB402572BF4A00723154 /* FrameworkTestView.swift */,
+				6F81CB402572BF4A00723154 /* BookView.swift */,
 			);
 			path = Book;
 			sourceTree = "<group>";
 		};
-		6F81CB9B2572F1EA00723154 /* Model */ = {
+		6F81CB9B2572F1EA00723154 /* Persistence */ = {
 			isa = PBXGroup;
 			children = (
 				6F81CB0E2572BDA500723154 /* Persistence.swift */,
 				6F81CB102572BDA500723154 /* LegendOfTheFiveRingsApp.xcdatamodeld */,
-				6FED696625817B50008DC3A9 /* ModelExtensions.swift */,
 			);
-			path = Model;
+			path = Persistence;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -368,16 +368,16 @@
 				6F81CB0F2572BDA500723154 /* Persistence.swift in Sources */,
 				6F81A7592582B30600251F7C /* TraitView.swift in Sources */,
 				6F81A76F2582E7D900251F7C /* SkillView.swift in Sources */,
-				6FED696725817B50008DC3A9 /* ModelExtensions.swift in Sources */,
+				6F5F4AAD25852B5800FFD0A2 /* CharacterCell.swift in Sources */,
 				6F55D6C325799DAA0055CF11 /* DiceView.swift in Sources */,
 				6F81A7752582EDD200251F7C /* DieView.swift in Sources */,
-				6F81CB082572BDA300723154 /* ContentView.swift in Sources */,
 				6F81CB062572BDA300723154 /* LegendOfTheFiveRingsApp.swift in Sources */,
 				6F81A7542582B2F400251F7C /* RingView.swift in Sources */,
 				6F81CB8F2572EF2300723154 /* CharacterList.swift in Sources */,
 				6F81CB122572BDA500723154 /* LegendOfTheFiveRingsApp.xcdatamodeld in Sources */,
+				6F5F4A962584FF2700FFD0A2 /* HistoryView.swift in Sources */,
 				6FB59F692581739F00D6A298 /* CharacterView.swift in Sources */,
-				6F81CB412572BF4A00723154 /* FrameworkTestView.swift in Sources */,
+				6F81CB412572BF4A00723154 /* BookView.swift in Sources */,
 				6FCB221A257327E400F8BABF /* CharacterCreationView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

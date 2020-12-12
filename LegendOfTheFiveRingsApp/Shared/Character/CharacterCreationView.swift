@@ -52,7 +52,7 @@ struct CharacterCreationView: View {
             .navigationBarItems(leading: Button(action: {
                 self.showing.toggle()
             }) {
-                Text("Cancel")
+                Text("cancel")
             }, trailing:
                 Button(action: {
                     guard let family = family, let school = school else {

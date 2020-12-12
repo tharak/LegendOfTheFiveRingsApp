@@ -12,21 +12,20 @@ import LegendOfTheFiveRingsRoller
 @main
 struct LegendOfTheFiveRingsApp: App {
     
-    let persistenceController = PersistenceController.shared
-    @State private var selection: Tab = .testChar
+    @State private var selection: Tab = .dice
     var body: some Scene {
         WindowGroup {
             TabView (selection: $selection) {
                 CharacterView()
                 CharacterList(selection: $selection)
                 DiceView(selection: $selection)
-                FrameworkTestView(selection: $selection)
-                ContentView()
-                    .environment(\.managedObjectContext, persistenceController.container.viewContext)
+                BookView(selection: $selection)
+                HistoryView(selection: $selection)
             }
             .environmentObject(LegendOfTheFiveRingsModel())
             .environmentObject(LegendOfTheFiveRingsRollerModel())
             .environmentObject(Book())
+            .navigationViewStyle(StackNavigationViewStyle())
         }
     }
 }
@@ -37,5 +36,5 @@ enum Tab {
     case characters
     case dice
     case book
-    case content
+    case history
 }

@@ -8,16 +8,13 @@
 import SwiftUI
 import LegendOfTheFiveRings
 
-struct FrameworkTestView: View {
+struct BookView: View {
     
     @Binding var selection: Tab
     @EnvironmentObject var book: Book
 
-    
-    
     var body: some View {
         let sections = [
-            
             SectionView(name: "Advantages", items: book.advatages.map({NameDescription($0.name, $0.description)})),
             SectionView(name: "Ancestors", items: book.ancestors.map({NameDescription($0.name, $0.description)})),
             SectionView(name: "Armors", items: book.armors.map({NameDescription($0.name, $0.description)})),
@@ -39,12 +36,10 @@ struct FrameworkTestView: View {
                 ForEach(sections, id: \.self) { sectionView in
                     sectionView
                 }
-                
             }
             .navigationBarTitle("Book", displayMode: .inline)
             .navigationBarHidden(true)
         }
-
         .tabItem {
             Label("Book", systemImage: selection == Tab.book ? "book.closed.fill" : "book.closed")
         }
@@ -77,11 +72,10 @@ struct NameDescription: Hashable {
     }
     
     let name, description: String
-
 }
 
-struct FrameworkTestView_Previews: PreviewProvider {
+struct BookViewTestView_Previews: PreviewProvider {
     static var previews: some View {
-        FrameworkTestView(selection: .constant(Tab.book))
+        BookView(selection: .constant(Tab.book))
     }
 }

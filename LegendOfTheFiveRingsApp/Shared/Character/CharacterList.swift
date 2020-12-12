@@ -18,28 +18,29 @@ struct CharacterList: View {
     var body: some View {
         NavigationView {
             Form {
-                ForEach(model.characters, id: \.id) { (item: Character) in
-                    NavigationLink(destination: CharacterView(character: item)) {
-                        Text(item.name)
+                ForEach(model.characters, id: \.id) { (character: Character) in
+                    NavigationLink(destination: CharacterView(character: character)) {
+                        CharacterCell(character: character)
                     }
                 }
                 .onDelete(perform: deleteItems)
             }
             .navigationTitle("Characters \(model.characters.count)")
-                .navigationBarItems(trailing:
-                    HStack {
-                        Button(action: {
-                            showCharacterCreation.toggle()
-                        }) {
-                            Label("Add Item", systemImage: "plus")
-                        }.sheet(isPresented: $showCharacterCreation) {
-                            CharacterCreationView(book: book, showing: self.$showCharacterCreation)
-                        }
-                        #if os(iOS)
-                        EditButton()
-                        #endif
+            .navigationBarItems(trailing:
+                HStack {
+                    Button(action: {
+                        showCharacterCreation.toggle()
+                    }) {
+                        Label("create", systemImage: "plus")
+                    }.sheet(isPresented: $showCharacterCreation) {
+                        CharacterCreationView(book: book, showing: self.$showCharacterCreation)
                     }
-                )
+                    #if os(iOS)
+                    Divider()
+                    EditButton()
+                    #endif
+                }
+            )
         }
         .tabItem {
             Label("Characters", systemImage: selection == Tab.characters ? "person.2.fill" : "person.2")
@@ -61,5 +62,7 @@ struct CharacterList: View {
 struct CharacterList_Previews: PreviewProvider {
     static var previews: some View {
         CharacterList(selection:.constant(Tab.characters))
+            .environmentObject(LegendOfTheFiveRingsModel())
+            .environmentObject(Book())
     }
 }

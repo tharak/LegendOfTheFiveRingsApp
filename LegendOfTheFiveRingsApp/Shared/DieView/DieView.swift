@@ -9,7 +9,7 @@ import SwiftUI
 import LegendOfTheFiveRingsRoller
 
 struct DieView: View {
-    @ObservedObject var model: LegendOfTheFiveRingsRollerModel
+    @EnvironmentObject var roller: LegendOfTheFiveRingsRollerModel
     
     @Binding var roll: Int
     @Binding var keep: Int
@@ -22,7 +22,7 @@ struct DieView: View {
     var body: some View {
         Button {
             withAnimation {
-                self.model.roll(amount: roll, keep: keep, bonus: bonus,
+                self.roller.roll(amount: roll, keep: keep, bonus: bonus,
                                 keepHigh: keepHigh,
                                 explodesOn: explodesOn,
                                 rerollOnOne: rerollOnOne)
@@ -49,6 +49,7 @@ struct DieView: View {
 
 struct DieView_Previews: PreviewProvider {
     static var previews: some View {
-        DieView(model: LegendOfTheFiveRingsRollerModel(), roll: .constant(1), keep: .constant(1), bonus: .constant(0), keepHigh: .constant(true), explodesOn: .constant(10), rerollOnOne: .constant(false), color: .constant(Color.accentColor))
+        DieView(roll: .constant(1), keep: .constant(1), bonus: .constant(0), keepHigh: .constant(true), explodesOn: .constant(10), rerollOnOne: .constant(false), color: .constant(Color.accentColor))
+            .environmentObject(LegendOfTheFiveRingsRollerModel())
     }
 }

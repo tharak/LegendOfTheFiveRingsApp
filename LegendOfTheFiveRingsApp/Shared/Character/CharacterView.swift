@@ -67,7 +67,7 @@ struct CharacterView: View {
                     ScrollView(.horizontal) {
                         HStack{
                             ForEach(character.skills(), id:\.self) { skill in
-                                SkillView(model: model, skill: skill, character: character, traitValue: 0, hasEmphasis: false)
+                                SkillView(skill: skill, character: character, traitValue: 0, hasEmphasis: false)
                             }
                         }
                     }
@@ -82,8 +82,7 @@ struct CharacterView: View {
                     .accessibility(label: Text("Characters"))
             }
             .tag(Tab.testChar)
-            }
-        else {
+        } else {
             Text("Loading...")
                 .onAppear() {
                     self.character = model.characters.first
@@ -94,7 +93,7 @@ struct CharacterView: View {
 
 struct CharacterView_Previews: PreviewProvider {
     static var previews: some View {
-        CharacterView(character: LegendOfTheFiveRingsModel().characters.first, name: "Char")
+        CharacterView(name: "Char")
             .environmentObject(LegendOfTheFiveRingsModel())
     }
 }
