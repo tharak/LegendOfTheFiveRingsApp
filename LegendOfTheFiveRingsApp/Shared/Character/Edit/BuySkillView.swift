@@ -23,46 +23,45 @@ struct BuySkillView: View {
     var body: some View {
         NavigationView {
             Form {
-                    ForEach(book.skills.filter({category.contains($0.category.rawValue)}), id:\.self) { (skill: Skill)in
-                        VStack (alignment: HorizontalAlignment.leading, spacing: 4) {
-                            HStack (spacing: 8) {
-                                Text(skill.name)
-                                    .font(.headline)
-                                Text("(\(skill.trait))")
-                                    .font(.subheadline)
+                ForEach(book.skills.filter({category.contains($0.category.rawValue)}), id:\.self) { (skill: Skill)in
+                    VStack (alignment: HorizontalAlignment.leading, spacing: 4) {
+                        HStack (spacing: 8) {
+                            Text(skill.name)
+                                .font(.headline)
+                            Text("(\(skill.trait))")
+                                .font(.subheadline)
+                            Spacer()
+                            Button(action: {
+                                skillName = skill.name
+                                skillDescription = skill.description
+                                showingAlert.toggle()
+                            }) {
+                                Label("Description", systemImage: "info.circle")
+                                    .labelStyle(IconOnlyLabelStyle())
+                                    .font(.body)
+                            }
+                            .buttonStyle(PlainButtonStyle())
+                            if !skill.type.contains("Macro-skill") {
                                 Spacer()
                                 Button(action: {
-                                    skillName = skill.name
-                                    skillDescription = skill.description
-                                    showingAlert.toggle()
+                                    model.buySkill(type: Item.ItemType.skills, name: skill.name, for: character)
                                 }) {
-                                    Label("Description", systemImage: "info.circle")
+                                    Label("Buy", systemImage: "plus.rectangle")
                                         .labelStyle(IconOnlyLabelStyle())
                                         .font(.body)
                                 }
                                 .buttonStyle(PlainButtonStyle())
-                                if !skill.type.contains("Macro-skill") {
-                                    Spacer()
-                                    Button(action: {
-                                        model.buySkill(type: Item.ItemType.skills, name: skill.name, for: character)
-                                    }) {
-                                        Label("Buy", systemImage: "plus.rectangle")
-                                            .labelStyle(IconOnlyLabelStyle())
-                                            .font(.body)
-                                    }
-                                    .buttonStyle(PlainButtonStyle())
-                                    .disabled(character.skillRank(name: skill.name) != 0)
-                                }
-                            }
-                            .foregroundColor(RingName.allCases.first(where: {$0.traits.contains(TraitName(rawValue: skill.trait.lowercased()) ?? TraitName.agility)})?.color ?? Color.accentColor)
-                            BuyEmphasisView(character: character, skill: skill)
-                                .foregroundColor(RingName.allCases.first(where: {$0.traits.contains(TraitName(rawValue: skill.trait.lowercased()) ?? TraitName.agility)})?.color ?? Color.accentColor)
-                            if skill.mastery != "None" {
-                                Text(skill.mastery)
-                                    .font(.footnote)
+                                .disabled(character.skillRank(name: skill.name) != 0)
                             }
                         }
-                    
+                        .foregroundColor(RingName.allCases.first(where: {$0.traits.contains(TraitName(rawValue: skill.trait.lowercased()) ?? TraitName.agility)})?.color ?? Color.accentColor)
+                        BuyEmphasisView(character: character, skill: skill)
+                            .foregroundColor(RingName.allCases.first(where: {$0.traits.contains(TraitName(rawValue: skill.trait.lowercased()) ?? TraitName.agility)})?.color ?? Color.accentColor)
+                        if skill.mastery != "None" {
+                            Text(skill.mastery)
+                                .font(.footnote)
+                        }
+                    }    
                 }
             }
             .navigationBarItems(trailing:
