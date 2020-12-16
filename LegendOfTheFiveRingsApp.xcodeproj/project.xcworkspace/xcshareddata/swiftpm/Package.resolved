@@ -15,7 +15,7 @@
         "repositoryURL": "git@github.com:tharak/LegendOfTheFiveRings.git",
         "state": {
           "branch": "main",
-          "revision": "d62ac1a74b03b57cacb841038a256efcd0dbca73",
+          "revision": "5fbbdb6a6b6df047e9908801c074088eca7f4433",
           "version": null
         }
       },
@@ -24,7 +24,7 @@
         "repositoryURL": "git@github.com:tharak/LegendOfTheFiveRingsRoller.git",
         "state": {
           "branch": "main",
-          "revision": "2f0f73531613c573a8ca9050a9226584856df8b1",
+          "revision": "8db68bbacb76b09878d7b96d44ef712594fdfe93",
           "version": null
         }
       }

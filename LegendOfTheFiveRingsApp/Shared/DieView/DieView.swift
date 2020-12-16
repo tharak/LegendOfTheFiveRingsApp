@@ -17,23 +17,31 @@ struct DieView: View {
     @Binding var keepHigh: Bool
     @Binding var explodesOn: Int?
     @Binding var rerollOnOne: Bool
-    @Binding var color: Color
+    @Binding var color: Color?
 
+    @State var result: RollResult? = nil
+    
     var body: some View {
         Button {
             withAnimation {
-                self.roller.roll(amount: roll, keep: keep, bonus: bonus,
+                self.result = self.roller.roll(amount: roll, keep: keep, bonus: bonus,
                                 keepHigh: keepHigh,
                                 explodesOn: explodesOn,
                                 rerollOnOne: rerollOnOne)
             }
         } label: {
-            Label("\(roll)k\(keep)\(bonusText())", systemImage: "die.face.5")
-                .font(Font.headline)
+            if let result = result {
+                Label("\(roll)k\(keep)\(bonusText()) = \(result.total)", systemImage: "die.face.5")
+                    .font(Font.headline)
+            } else {
+                Label("\(roll)k\(keep)\(bonusText())", systemImage: "die.face.5")
+                    .font(Font.headline)
+            }
         }
+        .buttonStyle(PlainButtonStyle())
         .padding(4)
-        .foregroundColor(color)
-        .overlay(RoundedRectangle(cornerRadius: 16).stroke(color, lineWidth: 2))
+        .foregroundColor(color ?? Color.accentColor)
+        .overlay(RoundedRectangle(cornerRadius: 16).stroke(color ?? Color.accentColor, lineWidth: 2))
     }
     
     func bonusText() -> String {

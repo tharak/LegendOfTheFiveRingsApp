@@ -15,14 +15,15 @@ struct CharacterCell: View {
     var body: some View {
         HStack {
             Text(ClanName.emoji(name: character.clan()?.name))
-                .font(.largeTitle)
+                .font(.title)
             Divider()
+            Text(character.family()?.name ?? "")
             Text(character.name)
             Divider()
             ForEach(character.schools(), id:\.self) { school in
                 Text(school.name)
             }
-            Spacer()
+            Text("\(character.rank())")
         }
     }
 }

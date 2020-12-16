@@ -11,7 +11,6 @@ import LegendOfTheFiveRings
 struct CharacterList: View {
 
     @EnvironmentObject var model: LegendOfTheFiveRingsModel
-    @EnvironmentObject var book: Book
     @Binding var selection: Tab
     @State var showCharacterCreation = false
 
@@ -33,7 +32,7 @@ struct CharacterList: View {
                     }) {
                         Label("create", systemImage: "plus")
                     }.sheet(isPresented: $showCharacterCreation) {
-                        CharacterCreationView(book: book, showing: self.$showCharacterCreation)
+                        CharacterCreationView(showing: self.$showCharacterCreation)
                     }
                     #if os(iOS)
                     Divider()
@@ -63,6 +62,5 @@ struct CharacterList_Previews: PreviewProvider {
     static var previews: some View {
         CharacterList(selection:.constant(Tab.characters))
             .environmentObject(LegendOfTheFiveRingsModel())
-            .environmentObject(Book())
     }
 }

@@ -11,7 +11,8 @@ import LegendOfTheFiveRings
 struct RingView: View {
     let ring: RingName
     @State var character: Character
-    
+    @State var spentVoid: Int = 0
+
     var body: some View {
         HStack {
             switch ring {
@@ -39,12 +40,17 @@ struct RingView: View {
                 Image(systemName: ring.systemImageName)
                     .font(.headline)
             case .void :
-                VStack {
+                HStack {
+                    Spacer()
+                    Text(RingName.void.rawValue.capitalized)
+                    Text("\(character.ring(name: RingName.void))")
                     Image(systemName: RingName.void.systemImageName)
-                    HStack {
-                        Text(RingName.void.rawValue.capitalized)
-                        Text("\(character.ring(name: RingName.void))")
-                    }
+                    Spacer()
+                    Text("spent: \(spentVoid)")
+                        .font(.subheadline)
+                    Stepper("", value: $spentVoid, in: 0...character.ring(name: .void), step: 1)
+                        .labelsHidden()
+                    Spacer()
                 }
                 .font(.headline)
                 .padding(8)

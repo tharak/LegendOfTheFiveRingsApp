@@ -12,18 +12,26 @@ import LegendOfTheFiveRingsRoller
 struct SkillView: View {
     let skill: Item
     @State var character: Character
-    var traitValue: Int
-    var hasEmphasis: Bool
+    var traitName: TraitName
+
+    var color: Color {
+        return RingName.allCases.first(where: {$0.traits.contains(traitName)})?.color ?? Color.accentColor
+    }
 
     var body: some View {
         VStack {
-            HStack{
-                Text(skill.name)
-                Text("\(character.skillRank(name: skill.name))")
+            HStack (spacing: 0){
+                if skill.type == "\(Item.ItemType.schoolSkill)" {
+                    Image(systemName: "graduationcap.fill")
+                        .scaleEffect(0.75)
+                }
+                Text("\(skill.name) \(character.skillRank(name: skill.name))")
             }
-            DieView(roll: .constant(character.skillRank(name: skill.name)), keep: .constant(traitValue + character.skillRank(name: skill.name)), bonus: .constant(0), keepHigh: .constant(true), explodesOn: .constant(10), rerollOnOne: .constant(hasEmphasis), color: .constant(Color.red))
+            DieView(roll: .constant(character.trait(name: traitName) + character.skillRank(name: skill.name)), keep: .constant(character.trait(name: traitName)), bonus: .constant(0), keepHigh: .constant(true), explodesOn: .constant(10), rerollOnOne: .constant(false), color: .constant(color))
         }
-        .background(Color.orange)
+        .padding(8)
+        .overlay(RoundedRectangle(cornerRadius: 8).stroke(color, lineWidth: 2))
+        .foregroundColor(color)
     }
 }
 

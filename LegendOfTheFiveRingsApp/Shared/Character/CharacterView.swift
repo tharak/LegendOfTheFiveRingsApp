@@ -11,40 +11,36 @@ import LegendOfTheFiveRings
 struct CharacterView: View {
 
     @EnvironmentObject var model: LegendOfTheFiveRingsModel
+    @EnvironmentObject var book: Book
     @State var character: Character?
     @State var name: String = ""
-    
+
     var body: some View {
         if let character = character {
             Form {
                 Section {
+                    CharacterCell(character: character)
                     HStack {
-                        Text(character.name)
                         Spacer()
-                        Divider()
-                        Text("XP: \(character.xp)")
-                    }
-                    HStack {
-                        Text(ClanName.emoji(name: character.clan()?.name))
-                            .font(.largeTitle)
-                        Divider()
-                        Text(character.family()?.name ?? "")
-                        Divider()
-                        ForEach(character.schools(), id:\.self) { school in
-                            Text(school.name)
+                        VStack {
+                            Text("Honor")
+                            Text("\(Double(character.honor)/10, specifier: "%.1f")")
                         }
-                        Spacer()
-                    }
-                }
-                Section {
-                    HStack {
-                        Text("XP")
-                        Spacer()
-                        Text("unexpent:")
-                        Text("\(character.xp)")
                         Divider()
-                        Text("expended:")
-                        Text("\(character.items.reduce(0, {$0 + ($1 as! Item).points}))")
+                        VStack {
+                            Text("Glory")
+                            Text("\(character.glory)")
+                        }
+                        Divider()
+                        VStack {
+                            Text("Status")
+                            Text("\(character.status)")
+                        }
+                        Divider()
+                        VStack {
+                            Text("Taint")
+                            Text("\(character.shadowlandsTaint)")
+                        }
                         Spacer()
                     }
                 }
@@ -60,17 +56,29 @@ struct CharacterView: View {
                             Divider()
                             RingView(ring: RingName.fire, character: character)
                         }
-                        RingView(ring: RingName.void, character: character)
+                        RingView(ring: RingName.void, character: character)    
                     }
                 }
+                Section {
+                    InitiativeView(rank: character.rank(), trait: character.trait(name: .reflexes))
+                    ArmorView(reflexes: character.trait(name: .reflexes))
+                    WoundView(character: character)
+                }
                 Section(header: Text("Skills:")) {
-                    ScrollView(.horizontal) {
+                    ScrollView(.horizontal, showsIndicators: false) {
                         HStack{
                             ForEach(character.skills(), id:\.self) { skill in
-                                SkillView(skill: skill, character: character, traitValue: 0, hasEmphasis: false)
+                                if let s = book.skills.first(where: {skill.name.contains($0.name)}),
+                                   let traitName = TraitName(rawValue: s.trait.lowercased()) {
+                                    SkillView(skill: skill, character: character, traitName: traitName)
+                                        .cornerRadius(8)
+                                }
                             }
                         }
+                        .padding(.horizontal, 20)
+                        .padding(.vertical, 8)
                     }
+                    .padding(.horizontal, -20)
                 }
             }
             .onAppear() {
@@ -95,5 +103,6 @@ struct CharacterView_Previews: PreviewProvider {
     static var previews: some View {
         CharacterView(name: "Char")
             .environmentObject(LegendOfTheFiveRingsModel())
+            .environmentObject(Book())
     }
 }

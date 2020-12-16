@@ -11,6 +11,9 @@
 		6F55D6C325799DAA0055CF11 /* DiceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F55D6C225799DAA0055CF11 /* DiceView.swift */; };
 		6F5F4A962584FF2700FFD0A2 /* HistoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F5F4A952584FF2600FFD0A2 /* HistoryView.swift */; };
 		6F5F4AAD25852B5800FFD0A2 /* CharacterCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F5F4AAC25852B5800FFD0A2 /* CharacterCell.swift */; };
+		6F5F4AB8258792B200FFD0A2 /* InitiativeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F5F4AB7258792B200FFD0A2 /* InitiativeView.swift */; };
+		6F5F4ABD25879D7700FFD0A2 /* ArmorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F5F4ABC25879D7700FFD0A2 /* ArmorView.swift */; };
+		6F5F4AC22587B6F400FFD0A2 /* WoundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F5F4AC12587B6F400FFD0A2 /* WoundView.swift */; };
 		6F81A7542582B2F400251F7C /* RingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F81A7532582B2F400251F7C /* RingView.swift */; };
 		6F81A7592582B30600251F7C /* TraitView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F81A7582582B30600251F7C /* TraitView.swift */; };
 		6F81A76F2582E7D900251F7C /* SkillView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F81A76E2582E7D900251F7C /* SkillView.swift */; };
@@ -50,6 +53,9 @@
 		6F55D6C225799DAA0055CF11 /* DiceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiceView.swift; sourceTree = "<group>"; };
 		6F5F4A952584FF2600FFD0A2 /* HistoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryView.swift; sourceTree = "<group>"; };
 		6F5F4AAC25852B5800FFD0A2 /* CharacterCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterCell.swift; sourceTree = "<group>"; };
+		6F5F4AB7258792B200FFD0A2 /* InitiativeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitiativeView.swift; sourceTree = "<group>"; };
+		6F5F4ABC25879D7700FFD0A2 /* ArmorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArmorView.swift; sourceTree = "<group>"; };
+		6F5F4AC12587B6F400FFD0A2 /* WoundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WoundView.swift; sourceTree = "<group>"; };
 		6F81A7532582B2F400251F7C /* RingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RingView.swift; sourceTree = "<group>"; };
 		6F81A7582582B30600251F7C /* TraitView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TraitView.swift; sourceTree = "<group>"; };
 		6F81A76E2582E7D900251F7C /* SkillView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkillView.swift; sourceTree = "<group>"; };
@@ -204,6 +210,9 @@
 				6FCB2219257327E400F8BABF /* CharacterCreationView.swift */,
 				6F5F4AAC25852B5800FFD0A2 /* CharacterCell.swift */,
 				6FB59F682581739F00D6A298 /* CharacterView.swift */,
+				6F5F4AB7258792B200FFD0A2 /* InitiativeView.swift */,
+				6F5F4AC12587B6F400FFD0A2 /* WoundView.swift */,
+				6F5F4ABC25879D7700FFD0A2 /* ArmorView.swift */,
 				6F81A7532582B2F400251F7C /* RingView.swift */,
 				6F81A7582582B30600251F7C /* TraitView.swift */,
 				6F81A76E2582E7D900251F7C /* SkillView.swift */,
@@ -371,7 +380,9 @@
 				6F5F4AAD25852B5800FFD0A2 /* CharacterCell.swift in Sources */,
 				6F55D6C325799DAA0055CF11 /* DiceView.swift in Sources */,
 				6F81A7752582EDD200251F7C /* DieView.swift in Sources */,
+				6F5F4ABD25879D7700FFD0A2 /* ArmorView.swift in Sources */,
 				6F81CB062572BDA300723154 /* LegendOfTheFiveRingsApp.swift in Sources */,
+				6F5F4AC22587B6F400FFD0A2 /* WoundView.swift in Sources */,
 				6F81A7542582B2F400251F7C /* RingView.swift in Sources */,
 				6F81CB8F2572EF2300723154 /* CharacterList.swift in Sources */,
 				6F81CB122572BDA500723154 /* LegendOfTheFiveRingsApp.xcdatamodeld in Sources */,
@@ -379,6 +390,7 @@
 				6FB59F692581739F00D6A298 /* CharacterView.swift in Sources */,
 				6F81CB412572BF4A00723154 /* BookView.swift in Sources */,
 				6FCB221A257327E400F8BABF /* CharacterCreationView.swift in Sources */,
+				6F5F4AB8258792B200FFD0A2 /* InitiativeView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

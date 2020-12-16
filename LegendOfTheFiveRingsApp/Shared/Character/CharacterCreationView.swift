@@ -11,7 +11,7 @@ import LegendOfTheFiveRings
 struct CharacterCreationView: View {
 
     @EnvironmentObject var model: LegendOfTheFiveRingsModel
-    var book: Book
+    @EnvironmentObject var book: Book
 
     @Binding var showing: Bool
     @State var xp: Int = 45
@@ -70,6 +70,6 @@ struct CharacterCreationView: View {
 
 struct CharacterCreationView_Previews: PreviewProvider {
     static var previews: some View {
-        CharacterCreationView(book: Book(), showing: .constant(true))
+        CharacterCreationView(showing: .constant(true))
     }
 }

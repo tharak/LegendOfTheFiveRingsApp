@@ -12,7 +12,7 @@ import LegendOfTheFiveRingsRoller
 @main
 struct LegendOfTheFiveRingsApp: App {
     
-    @State private var selection: Tab = .dice
+    @State private var selection: Tab = .testChar
     var body: some Scene {
         WindowGroup {
             TabView (selection: $selection) {
