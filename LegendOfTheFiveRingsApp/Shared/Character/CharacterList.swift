@@ -18,13 +18,13 @@ struct CharacterList: View {
         NavigationView {
             Form {
                 ForEach(model.characters, id: \.id) { (character: Character) in
-                    NavigationLink(destination: CharacterView(character: character)) {
+                    NavigationLink(destination: CharacterDetailView(character: character)) {
                         CharacterCell(character: character)
                     }
                 }
                 .onDelete(perform: deleteItems)
             }
-            .navigationTitle("Characters \(model.characters.count)")
+            .navigationTitle("Characters")
             .navigationBarItems(trailing:
                 HStack {
                     Button(action: {
@@ -46,7 +46,6 @@ struct CharacterList: View {
                 .accessibility(label: Text("Characters"))
         }
         .tag(Tab.characters)
-        
     }
 
     private func deleteItems(offsets: IndexSet) {

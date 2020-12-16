@@ -16,7 +16,7 @@ struct LegendOfTheFiveRingsApp: App {
     var body: some Scene {
         WindowGroup {
             TabView (selection: $selection) {
-                CharacterView()
+                CharacterDetailView(character: LegendOfTheFiveRingsModel().characters.first!)
                 CharacterList(selection: $selection)
                 DiceView(selection: $selection)
                 BookView(selection: $selection)
