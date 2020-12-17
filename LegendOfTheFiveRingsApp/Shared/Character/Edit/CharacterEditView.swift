@@ -29,13 +29,30 @@ struct CharacterEditView: View {
                 }
             }
             Section {
-                NavigationLink(destination: BuyTraitView(character: character)) {
+                /*
+                 add buy extra things from creation
+                 or school and level (spells, tattoos, advantages)
+                 */
+                NavigationLink(destination: UpdateTraitView(character: character)) {
                     Text("Traits:")
                 }
-            }
-            Section {
                 NavigationLink(destination: UpdateSkillView(character: character)) {
                     Text("Skills:")
+                }
+                NavigationLink(destination: Text("")) {
+                    Text("Advantages:")
+                }
+                NavigationLink(destination: Text("")) {
+                    Text("Disadvantages:")
+                }
+                NavigationLink(destination: Text("")) {
+                    Text("Equipment:")
+                }
+                NavigationLink(destination: Text("")) {
+                    Text("School Techniques:")
+                }
+                NavigationLink(destination: Text("")) {
+                    Text("Kata:")
                 }
             }
         }

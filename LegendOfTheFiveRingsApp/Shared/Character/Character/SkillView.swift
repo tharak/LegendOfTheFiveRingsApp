@@ -19,19 +19,34 @@ struct SkillView: View {
     }
 
     var body: some View {
-        VStack {
-            HStack (spacing: 0){
-                if skill.type == "\(Item.ItemType.schoolSkill)" {
-                    Image(systemName: "graduationcap.fill")
-                        .scaleEffect(0.75)
+        HStack {
+            HStack {
+                ForEach(character.emphases(for: skill.name), id:\.self) { emphases in
+                    VStack {
+                        Text("\(skill.name) (\(emphases.name))")
+                        DieView(roll: .constant(character.trait(name: traitName) + character.skillRank(name: skill.name)), keep: .constant(character.trait(name: traitName)), bonus: .constant(0), keepHigh: .constant(true), explodesOn: .constant(10), rerollOnOne: .constant(true), color: .constant(color))
+                    }
+                    .padding(8)
+                    .overlay(RoundedRectangle(cornerRadius: 8).stroke(color, lineWidth: 2))
+                    .foregroundColor(color)
                 }
-                Text("\(skill.name) \(character.skillRank(name: skill.name))")
             }
-            DieView(roll: .constant(character.trait(name: traitName) + character.skillRank(name: skill.name)), keep: .constant(character.trait(name: traitName)), bonus: .constant(0), keepHigh: .constant(true), explodesOn: .constant(10), rerollOnOne: .constant(false), color: .constant(color))
+            VStack {
+                HStack (spacing: 0){
+                    if skill.type == "\(Item.ItemType.schoolSkill)" {
+                        Image(systemName: "graduationcap.fill")
+                            .scaleEffect(0.75)
+                    }
+                    Text("\(skill.name) \(character.skillRank(name: skill.name))")
+                }
+                DieView(roll: .constant(character.trait(name: traitName) + character.skillRank(name: skill.name)), keep: .constant(character.trait(name: traitName)), bonus: .constant(0), keepHigh: .constant(true), explodesOn: .constant(10), rerollOnOne: .constant(false), color: .constant(color))
+                
+            }
+            .padding(8)
+            .overlay(RoundedRectangle(cornerRadius: 8).stroke(color, lineWidth: 2))
+            .foregroundColor(color)
         }
-        .padding(8)
-        .overlay(RoundedRectangle(cornerRadius: 8).stroke(color, lineWidth: 2))
-        .foregroundColor(color)
+
     }
 }
 

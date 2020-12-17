@@ -23,20 +23,41 @@ struct UpdateSkillView: View {
                         onIncrement: {
                             model.buySkill(type: Item.ItemType.skills, name: skill.name, for: character)
                         }, onDecrement: {
-                            model.sellSkill(skillName: skill.name, for: character)
+                            if character.skillRank(name: skill.name) > 1 {
+                                model.sellSkill(skillName: skill.name, for: character)
+                            } else if character.emphases(for: skill.name).count == 0 {
+                                model.sellSkill(skillName: skill.name, for: character)
+                            }
                         }
                     )
+                    .foregroundColor(RingName.allCases.first(where: {$0.traits.contains(traitName)})?.color ?? Color.accentColor)
+                    .font(.headline)
+                    ForEach(character.emphases(for: skill.name), id:\.self) { emphasis in
+                        Button(action: {
+                            model.sellItem(item: emphasis, for: character)
+                        }) {
+                            HStack {
+                                Text(emphasis.name)
+                                    .font(.subheadline)
+                                Label(emphasis.name, systemImage: "minus.square")
+                                    .labelStyle(IconOnlyLabelStyle())
+                                    .font(.body)
+                            }
+                            .padding(.horizontal)
+                        }
+                        .buttonStyle(PlainButtonStyle())
+                    }
                     .foregroundColor(RingName.allCases.first(where: {$0.traits.contains(traitName)})?.color ?? Color.accentColor)
                 }
             }
         }
-        .navigationTitle("Traits")
+        .navigationTitle("Skills XP: \(character.xp)")
         .navigationBarItems(trailing: Button(action: {
             showBuySkill.toggle()
         }) {
             Label("Buy Skill", systemImage: "plus.circle")
                 .labelStyle(IconOnlyLabelStyle())
-                .font(.body)
+                .font(.title)
         })
         .sheet(isPresented: $showBuySkill, content: {
             BuySkillView(character: character, showing: $showBuySkill)

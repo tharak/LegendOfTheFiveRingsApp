@@ -33,6 +33,7 @@ struct CharacterDetailView: View {
                 }) {
                     Label(editing ? "Done" : "Edit", systemImage: editing ? "pencil.circle.fill" : "pencil.circle")
                         .labelStyle(IconOnlyLabelStyle())
+                        .font(.title)
                 }
             }
         )

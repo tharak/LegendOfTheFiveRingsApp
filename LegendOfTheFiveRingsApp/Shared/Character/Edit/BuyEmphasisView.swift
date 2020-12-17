@@ -21,7 +21,7 @@ struct BuyEmphasisView: View {
                     if skill.type.contains("Macro-skill") {
                         model.buySkill(type: Item.ItemType.skills, name: "\(skill.name) \(emphases)", for: character)
                     } else {
-                        model.buySkill(type: Item.ItemType.emphasis(skillName: skill.name), name: emphases, for: character)
+                        model.buyEmphasis(skillName: skill.name, emphasisName: emphases, for: character)
                     }
                 }) {
                     HStack {
@@ -35,7 +35,7 @@ struct BuyEmphasisView: View {
                 .buttonStyle(PlainButtonStyle())
                 .frame(minWidth: 44)
                 .padding(.horizontal)
-                .disabled(hasEmphases(emphases: emphases))
+                .disabled((!skill.type.contains("Macro-skill") && character.skillRank(name: skill.name) == 0) || hasEmphases(emphases: emphases))
             }
         }
         .font(.body)

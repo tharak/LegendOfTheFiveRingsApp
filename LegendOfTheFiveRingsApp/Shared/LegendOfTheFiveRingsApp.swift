@@ -16,8 +16,10 @@ struct LegendOfTheFiveRingsApp: App {
     var body: some Scene {
         WindowGroup {
             TabView (selection: $selection) {
-                NavigationView {
-                    CharacterDetailView(character: LegendOfTheFiveRingsModel().characters.first!)
+                if let first = LegendOfTheFiveRingsModel().characters.first {
+                    NavigationView {
+                        CharacterDetailView(character: first)
+                    }
                 }
                 CharacterList(selection: $selection)
                 DiceView(selection: $selection)

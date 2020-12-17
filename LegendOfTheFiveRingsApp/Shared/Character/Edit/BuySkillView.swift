@@ -32,7 +32,7 @@ struct BuySkillView: View {
                                 .font(.subheadline)
                             Spacer()
                             Button(action: {
-                                skillName = skill.name
+                                skillName = skill.mastery
                                 skillDescription = skill.description
                                 showingAlert.toggle()
                             }) {
@@ -57,11 +57,7 @@ struct BuySkillView: View {
                         .foregroundColor(RingName.allCases.first(where: {$0.traits.contains(TraitName(rawValue: skill.trait.lowercased()) ?? TraitName.agility)})?.color ?? Color.accentColor)
                         BuyEmphasisView(character: character, skill: skill)
                             .foregroundColor(RingName.allCases.first(where: {$0.traits.contains(TraitName(rawValue: skill.trait.lowercased()) ?? TraitName.agility)})?.color ?? Color.accentColor)
-                        if skill.mastery != "None" {
-                            Text(skill.mastery)
-                                .font(.footnote)
-                        }
-                    }    
+                    }
                 }
             }
             .navigationBarItems(trailing:

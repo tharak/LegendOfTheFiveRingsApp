@@ -8,7 +8,7 @@
 import SwiftUI
 import LegendOfTheFiveRings
 
-struct BuyTraitView: View {
+struct UpdateTraitView: View {
     @EnvironmentObject var model: LegendOfTheFiveRingsModel
     @ObservedObject var character: Character
 
@@ -27,10 +27,11 @@ struct BuyTraitView: View {
                         }
                     )
                 }
+                .padding(.horizontal)
                 .foregroundColor(ringName.color)
                 .font(.subheadline)
             }
-        }.navigationTitle("Traits")
+        }.navigationTitle("Traits XP: \(character.xp)")
     }
 }
 

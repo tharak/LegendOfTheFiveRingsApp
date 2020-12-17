@@ -59,6 +59,8 @@ struct CharacterView: View {
                 InitiativeView(rank: character.rank(), trait: character.trait(name: .reflexes))
                 ArmorView(reflexes: character.trait(name: .reflexes))
                 WoundView(character: character)
+                //weapons
+                //spell slots
             }
             Section(header: Text("Skills:")) {
                 ScrollView(.horizontal, showsIndicators: false) {
@@ -76,6 +78,11 @@ struct CharacterView: View {
                 }
                 .padding(.horizontal, -20)
             }
+            //Section(header: Text("School Techniques:")
+            //Section(header: Text("Kata:")
+            //Section(header: Text("Advantages:")
+            //Section(header: Text("Disadvantages:")
+            //Section(header: Text("Equipment:")
         }
     }
 }
