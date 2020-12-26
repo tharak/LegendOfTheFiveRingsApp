@@ -13,23 +13,22 @@ struct CharacterCell: View {
     @State var character: Character
 
     var body: some View {
-        HStack {
-            Text(ClanName.emoji(name: character.clan()?.name))
-                .font(.title)
-            Divider()
-            Text(character.family()?.name ?? "")
-            Text(character.name)
-            Divider()
-            ForEach(character.schools(), id:\.self) { school in
-                Text(school.name)
+        VStack {
+            HStack {
+                Text(ClanName.emoji(name: character.clan()?.name))
+                    .font(.title)
+                Text(character.family()?.name ?? "")
+                Text(character.name)
+                Spacer()
             }
-            Text("\(character.rank())")
+            HStack {
+                ForEach(character.schools(), id:\.self) { school in
+                    Text(school.name)
+                }
+                Text("\(character.rank())")
+                Spacer()
+            }
+            .font(.subheadline)
         }
     }
 }
-
-//struct CharacterCell_Previews: PreviewProvider {
-//    static var previews: some View {
-////        CharacterCell(character: <#T##Character#>)
-//    }
-//}

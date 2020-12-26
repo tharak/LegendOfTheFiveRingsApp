@@ -17,7 +17,7 @@ struct DieView: View {
     @Binding var keepHigh: Bool
     @Binding var explodesOn: Int?
     @Binding var rerollOnOne: Bool
-    @Binding var color: Color?
+    @Binding var color: Color
 
     @State var result: RollResult? = nil
     
@@ -40,8 +40,8 @@ struct DieView: View {
         }
         .buttonStyle(PlainButtonStyle())
         .padding(4)
-        .foregroundColor(color ?? Color.accentColor)
-        .overlay(RoundedRectangle(cornerRadius: 16).stroke(color ?? Color.accentColor, lineWidth: 2))
+        .foregroundColor(color)
+        .overlay(RoundedRectangle(cornerRadius: 16).stroke(color, lineWidth: 2))
     }
     
     func bonusText() -> String {

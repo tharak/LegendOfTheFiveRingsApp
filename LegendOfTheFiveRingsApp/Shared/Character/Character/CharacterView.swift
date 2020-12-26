@@ -57,14 +57,23 @@ struct CharacterView: View {
             }
             Section {
                 InitiativeView(rank: character.rank(), trait: character.trait(name: .reflexes))
-                ArmorView(reflexes: character.trait(name: .reflexes))
                 WoundView(character: character)
-                //weapons
+                ArmorView(character: character)
+                ScrollView(.horizontal, showsIndicators: false) {
+                    HStack(spacing: 4) {
+                        ForEach(character.weapons(), id:\.self) { weapon in
+                            Text(weapon.name)
+                        }
+                    }
+                    .padding(.horizontal, 20)
+                    .padding(.vertical, 8)
+                }
+                .padding(.horizontal, -20)
                 //spell slots
             }
             Section(header: Text("Skills:")) {
                 ScrollView(.horizontal, showsIndicators: false) {
-                    HStack{
+                    HStack(spacing: 4) {
                         ForEach(character.skills(), id:\.self) { skill in
                             if let s = book.skills.first(where: {skill.name.contains($0.name)}),
                                let traitName = TraitName(rawValue: s.trait.lowercased()) {

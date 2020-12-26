@@ -21,14 +21,14 @@ struct WoundView: View {
                 VStack {
                     Text("Wounds: \(damage)/\(character.ring(name: .earth) * 19)")
                     VStack {
-                        if woundLevel() != nil {
-                            if woundLevel() != .out {
-                                Text("Penalty: +\(woundPenalty(woundLevel: woundLevel()))")
+                        if let woundLevel = character.woundLevel(damage: damage) {
+                            if woundLevel != .out {
+                                Text("Penalty: +\(character.woundPenalty(woundLevel: woundLevel))")
                             }
-                            if woundLevel() == .down {
+                            if woundLevel == .down {
                                 Text("Must spend void to act")
                             }
-                            if woundLevel() == .out {
+                            if woundLevel == .out {
                                 Text("Cannot Act")
                             }
                         }
@@ -36,7 +36,7 @@ struct WoundView: View {
                     .font(.footnote)
                 }
                 Spacer()
-                Text("\(woundLevel()?.rawValue.capitalized ?? "💀")")
+                Text("\(character.woundLevel(damage: damage)?.rawValue.capitalized ?? "💀")")
                     .font(.headline)
                     .foregroundColor(woundColor())
                     .padding(4)
@@ -58,56 +58,8 @@ struct WoundView: View {
     }
 
     public func woundColor() -> Color {
-        let percent = CGFloat(damage) / CGFloat(character.ring(name: .earth) * 19)
-        return Color(red: Double(percent), green: Double(1 - percent), blue: 0)
-    }
-
-    public func woundLevel() -> WoundLevel? {
-        let earth = character.ring(name: .earth)
-        switch damage {
-        case ...(earth * 5):
-            return .healthy
-        case ...(earth * 7):
-            return .nicked
-        case ...(earth * 9):
-            return .grazed
-        case ...(earth * 11):
-            return .hurt
-        case ...(earth * 13):
-            return .injured
-        case ...(earth * 15):
-            return .crippled
-        case ...(earth * 17):
-            return .down
-        case ...(earth * 19):
-            return .out
-        default:
-            return nil
-        }
-    }
-
-    public func woundPenalty(woundLevel: WoundLevel?) -> Int {
-        guard let woundLevel = woundLevel else {
-            return 0
-        }
-        switch woundLevel {
-        case .healthy:
-            return 0
-        case .nicked:
-            return 3
-        case .grazed:
-            return 5
-        case .hurt:
-            return 10
-        case .injured:
-            return 15
-        case .crippled:
-            return 20
-        case .down:
-            return 40
-        case .out:
-            return 0
-        }
+        let percent = Double(damage) / Double(character.ring(name: .earth) * 19)
+        return Color(red: percent, green: 1 - percent, blue: 0)
     }
 }
 

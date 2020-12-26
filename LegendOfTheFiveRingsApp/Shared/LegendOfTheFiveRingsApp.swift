@@ -12,15 +12,10 @@ import LegendOfTheFiveRingsRoller
 @main
 struct LegendOfTheFiveRingsApp: App {
     
-    @State private var selection: Tab = .testChar
+    @State private var selection: Tab = .characters
     var body: some Scene {
         WindowGroup {
             TabView (selection: $selection) {
-                if let first = LegendOfTheFiveRingsModel().characters.first {
-                    NavigationView {
-                        CharacterDetailView(character: first)
-                    }
-                }
                 CharacterList(selection: $selection)
                 DiceView(selection: $selection)
                 BookView(selection: $selection)

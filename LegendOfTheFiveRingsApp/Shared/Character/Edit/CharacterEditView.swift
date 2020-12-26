@@ -39,6 +39,12 @@ struct CharacterEditView: View {
                 NavigationLink(destination: UpdateSkillView(character: character)) {
                     Text("Skills:")
                 }
+                NavigationLink(destination: BuyEquipments(character: character)) {
+                    Text("Equipment:")
+                }
+                NavigationLink(destination: Text("")) {
+                    Text("Kata:")
+                }
                 NavigationLink(destination: Text("")) {
                     Text("Advantages:")
                 }
@@ -46,13 +52,7 @@ struct CharacterEditView: View {
                     Text("Disadvantages:")
                 }
                 NavigationLink(destination: Text("")) {
-                    Text("Equipment:")
-                }
-                NavigationLink(destination: Text("")) {
                     Text("School Techniques:")
-                }
-                NavigationLink(destination: Text("")) {
-                    Text("Kata:")
                 }
             }
         }

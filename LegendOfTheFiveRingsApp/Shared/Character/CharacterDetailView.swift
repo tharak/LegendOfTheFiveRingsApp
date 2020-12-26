@@ -9,18 +9,13 @@ import SwiftUI
 import LegendOfTheFiveRings
 
 struct CharacterDetailView: View {
-    @EnvironmentObject var model: LegendOfTheFiveRingsModel
     @State var character: Character
-    @State var editing = true
+    @State var editing = false
 
     var body: some View {
         VStack {
             if editing {
-                if let first = model.characters.first {
-                    CharacterEditView(character: first)
-                } else {
-                    CharacterEditView(character: character)
-                }
+                CharacterEditView(character: character)
             } else {
                 CharacterView(character: character)
             }
@@ -31,9 +26,7 @@ struct CharacterDetailView: View {
                 Button(action: {
                     editing.toggle()
                 }) {
-                    Label(editing ? "Done" : "Edit", systemImage: editing ? "pencil.circle.fill" : "pencil.circle")
-                        .labelStyle(IconOnlyLabelStyle())
-                        .font(.title)
+                    Label(editing ? "Done" : "XP \(character.xp)", systemImage: editing ? "pencil.circle.fill" : "pencil.circle")
                 }
             }
         )

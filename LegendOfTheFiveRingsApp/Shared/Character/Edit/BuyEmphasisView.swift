@@ -19,7 +19,7 @@ struct BuyEmphasisView: View {
             ForEach(getEmphasis(), id:\.self) { emphases in
                 Button(action: {
                     if skill.type.contains("Macro-skill") {
-                        model.buySkill(type: Item.ItemType.skills, name: "\(skill.name) \(emphases)", for: character)
+                        model.buySkill(type: Item.ItemType.skills, name: "\(skill.name): \(emphases)", for: character)
                     } else {
                         model.buyEmphasis(skillName: skill.name, emphasisName: emphases, for: character)
                     }
@@ -43,7 +43,7 @@ struct BuyEmphasisView: View {
     
     func hasEmphases(emphases: String) -> Bool {
         if skill.type.contains("Macro-skill") {
-            return character.skillRank(name: "\(skill.name) \(emphases)") != 0
+            return character.skillRank(name: "\(skill.name): \(emphases)") != 0
         } else {
             return character.emphases(for: skill.name).contains(where: {$0.name == emphases})
         }

@@ -10,12 +10,12 @@ import LegendOfTheFiveRings
 
 struct ArmorView: View {
     @EnvironmentObject var book: Book
-    @State var reflexes: Int
+    @State var character: Character
     @State var seletedArmor: Int = 0
     @State var tn: Int = 0
 
     var armorNames: [String] {
-        var armors = book.armors.map({String($0.name.split(separator: " ").first ?? "")})
+        var armors = character.armors().map({String($0.name.split(separator: " ").first ?? "")})
         armors.insert("None", at: 0)
         return armors
     }
@@ -63,11 +63,11 @@ struct ArmorView: View {
     
     func totalArmor() -> Int {
         if seletedArmor == 0 {
-            return 5 + (reflexes * 5)
+            return 5 + (character.trait(name: TraitName.reflexes) * 5)
         }
         if seletedArmor == book.armors.count {
-            return 5 + (reflexes * 5) + tn
+            return 5 + (character.trait(name: TraitName.reflexes) * 5) + tn
         }
-        return 5 + (reflexes * 5) + (book.armors[seletedArmor - 1].tn.first ?? 0)
+        return 5 + (character.trait(name: TraitName.reflexes) * 5) + (book.armors[seletedArmor - 1].tn.first ?? 0)
     }
 }

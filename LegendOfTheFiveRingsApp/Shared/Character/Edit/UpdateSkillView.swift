@@ -30,11 +30,11 @@ struct UpdateSkillView: View {
                             }
                         }
                     )
-                    .foregroundColor(RingName.allCases.first(where: {$0.traits.contains(traitName)})?.color ?? Color.accentColor)
+                    .foregroundColor(traitName.color)
                     .font(.headline)
                     ForEach(character.emphases(for: skill.name), id:\.self) { emphasis in
                         Button(action: {
-                            model.sellItem(item: emphasis, for: character)
+                            model.sellEmphasis(skillName: skill.name, emphasisName: emphasis.name, for: character)
                         }) {
                             HStack {
                                 Text(emphasis.name)
@@ -47,7 +47,7 @@ struct UpdateSkillView: View {
                         }
                         .buttonStyle(PlainButtonStyle())
                     }
-                    .foregroundColor(RingName.allCases.first(where: {$0.traits.contains(traitName)})?.color ?? Color.accentColor)
+                    .foregroundColor(traitName.color)
                 }
             }
         }
@@ -62,7 +62,6 @@ struct UpdateSkillView: View {
         .sheet(isPresented: $showBuySkill, content: {
             BuySkillView(character: character, showing: $showBuySkill)
         })
-
     }
 }
 

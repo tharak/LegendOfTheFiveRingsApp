@@ -14,7 +14,7 @@ struct CharacterCreationView: View {
     @EnvironmentObject var book: Book
 
     @Binding var showing: Bool
-    @State var xp: Int = 45
+    @State var xp: Int = 40
     @State var name: String = ""
     @State var clan: ClanName = ClanName.crab
     @State var family: Family?

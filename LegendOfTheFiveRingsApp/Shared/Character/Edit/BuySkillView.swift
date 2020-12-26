@@ -54,9 +54,9 @@ struct BuySkillView: View {
                                 .disabled(character.skillRank(name: skill.name) != 0)
                             }
                         }
-                        .foregroundColor(RingName.allCases.first(where: {$0.traits.contains(TraitName(rawValue: skill.trait.lowercased()) ?? TraitName.agility)})?.color ?? Color.accentColor)
+                        .foregroundColor(TraitName(rawValue: skill.trait.lowercased())?.color ?? Color.accentColor)
                         BuyEmphasisView(character: character, skill: skill)
-                            .foregroundColor(RingName.allCases.first(where: {$0.traits.contains(TraitName(rawValue: skill.trait.lowercased()) ?? TraitName.agility)})?.color ?? Color.accentColor)
+                            .foregroundColor(TraitName(rawValue: skill.trait.lowercased())?.color ?? Color.accentColor)
                     }
                 }
             }
