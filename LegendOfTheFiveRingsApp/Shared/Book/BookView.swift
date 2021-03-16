@@ -25,7 +25,7 @@ struct BookView: View {
         
             SectionView(name: "Kihos", items: book.kihos.map({NameDescription($0.name, $0.description)})),
             SectionView(name: "Schools", items: book.schools.map({NameDescription($0.name, $0.description)})),
-            SectionView(name: "shadowlandsPowers", items: book.shadowlandsPowers.map({NameDescription($0.name, $0.description)})),
+            SectionView(name: "Shadowlands Powers", items: book.shadowlandsPowers.map({NameDescription($0.name, $0.description)})),
             SectionView(name: "Skills", items: book.skills.map({NameDescription($0.name, $0.description)})),
             SectionView(name: "Spells", items: book.spells.map({NameDescription($0.name, $0.description)})),
             SectionView(name: "Tattoos", items: book.tattoos.map({NameDescription($0.name, $0.description)})),

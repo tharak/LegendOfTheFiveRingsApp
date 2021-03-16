@@ -40,6 +40,17 @@ struct CharacterList: View {
                     #endif
                 }
             )
+            if let character = model.characters.first {
+                CharacterDetailView(character: character)
+            } else {
+                Button(action: {
+                    showCharacterCreation.toggle()
+                }) {
+                    Label("Create your first character!", systemImage: "plus")
+                }.sheet(isPresented: $showCharacterCreation) {
+                    CharacterCreationView(showing: self.$showCharacterCreation)
+                }
+            }
         }
         .tabItem {
             Label("Characters", systemImage: selection == Tab.characters ? "person.2.fill" : "person.2")

@@ -22,8 +22,36 @@ struct ArmorView: View {
 
     var body: some View {
         VStack {
-            Label("TN: \(totalArmor())", systemImage: "shield.fill")
-                .font(.headline)
+            HStack {
+                Label("TN: \(totalArmor())", systemImage: "shield.fill")
+                    .font(.headline)
+                Spacer()
+                HStack {
+                    if seletedArmor == 0 {
+                        Text("TN: 0")
+                        Text("Reduction: 0")
+                    } else {
+                        if let armor = book.armors.first(where: {$0.name == character.armors()[seletedArmor - 1].name}) {
+                            if armor.tn.count == 2 {
+                                HStack {
+                                    Text("TN: ")
+                                    Picker("TN:", selection: $tn) {
+                                        ForEach(armor.tn, id: \.self) { (value: Int) in
+                                            Text("\(value)").tag(value)
+                                        }
+                                    }
+                                    .pickerStyle(SegmentedPickerStyle())
+
+                                }
+                            } else {
+                                Text("TN: \(armor.tn.first ?? 0)")
+                            }
+                            Text("Reduction: \(armor.reduction)")
+                        }
+                    }
+                }
+                .font(.footnote)
+            }
             Picker("armor:", selection: $seletedArmor) {
                 ForEach(0..<armorNames.count, id: \.self) { index in
                     Text(armorNames[index]).tag(index)
@@ -31,29 +59,6 @@ struct ArmorView: View {
             }
             .pickerStyle(SegmentedPickerStyle())
             .padding(.horizontal, -16)
-            HStack {
-                if seletedArmor == 0 {
-                    Text("TN: 0")
-                    Text("Reduction: 0")
-                } else {
-                    let armor = book.armors[seletedArmor - 1]
-                    if armor.tn.count == 2 {
-                        HStack {
-                            Text("TN: ")
-                            Picker("TN:", selection: $tn) {
-                                ForEach(armor.tn, id: \.self) { (value: Int) in
-                                    Text("\(value)").tag(value)
-                                }
-                            }
-                            .pickerStyle(SegmentedPickerStyle())
-                        }
-                    } else {
-                        Text("TN: \(armor.tn.first ?? 0)")
-                    }
-                    Text("Reduction: \(armor.reduction)")
-                }
-            }
-            .font(.footnote)
             if seletedArmor > 0, let special = book.armors[seletedArmor - 1].special {
                 Text(special)
                     .font(.footnote)

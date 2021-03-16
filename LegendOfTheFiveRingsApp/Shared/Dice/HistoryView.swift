@@ -38,11 +38,11 @@ struct HistoryView: View {
                     #endif
                 }
         )
-        .navigationBarTitle("History", displayMode: .inline)
+        .navigationBarTitle("Rolls", displayMode: .inline)
     
         .tabItem {
-            Label("History", systemImage: selection == Tab.history ? "doc.plaintext.fill" : "doc.plaintext")
-                .accessibility(label: Text("History"))
+            Label("Rolls", systemImage: selection == Tab.history ? "doc.plaintext.fill" : "doc.plaintext")
+                .accessibility(label: Text("Rolls"))
         }
         .tag(Tab.history)
     }

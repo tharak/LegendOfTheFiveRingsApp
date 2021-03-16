@@ -24,7 +24,6 @@ struct LegendOfTheFiveRingsApp: App {
             .environmentObject(LegendOfTheFiveRingsModel())
             .environmentObject(LegendOfTheFiveRingsRollerModel())
             .environmentObject(Book())
-            .navigationViewStyle(StackNavigationViewStyle())
         }
     }
 }

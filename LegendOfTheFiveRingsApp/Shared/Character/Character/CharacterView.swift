@@ -55,20 +55,11 @@ struct CharacterView: View {
                     RingView(ring: RingName.void, character: character)
                 }
             }
-            Section {
+            Section(header: Text("Combat:")) {
                 InitiativeView(rank: character.rank(), trait: character.trait(name: .reflexes))
                 WoundView(character: character)
                 ArmorView(character: character)
-                ScrollView(.horizontal, showsIndicators: false) {
-                    HStack(spacing: 4) {
-                        ForEach(character.weapons(), id:\.self) { weapon in
-                            Text(weapon.name)
-                        }
-                    }
-                    .padding(.horizontal, 20)
-                    .padding(.vertical, 8)
-                }
-                .padding(.horizontal, -20)
+                WeaponView(character: character)
                 //spell slots
             }
             Section(header: Text("Skills:")) {
